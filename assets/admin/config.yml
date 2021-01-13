@@ -1,0 +1,75 @@
+backend:
+  name: git-gateway
+  branch: master # Branch to update (optional; defaults to master)
+
+media_folder: "/public/images/uploads" # Media files will be stored in the repo under images/uploads
+public_folder: "uploads"
+publish_mode: editorial_workflow
+local_backend: true
+
+slug:
+  encoding: "ascii"
+  clean_accents: true
+  sanitize_replacement: "_"
+
+collections:
+  - name: "categorias" # Used in routes, e.g., /admin/collections/blog
+    label: "Categorías" # Used in the UI
+    editor:
+      preview: false
+    folder: "src/content/categorias" # The path to the folder where the documents are stored
+    identifier_field: "titulo"
+    create: true # Allow users to create new documents in this collection
+    slug: "{{slug}}" # Filename template, e.g., YYYY-MM-DD-title.md
+    format: "json"
+    sortable_fields: ["order", "titulo"] # Default is title:asc
+    media_folder: "/public/images/uploads/categorias" # Media files will be stored in the repo under images/uploads
+    public_folder: "uploads/categorias"
+    fields: # The fields for each document, usually in front matter
+      - {label: "Nombre", name: "titulo", widget: "string"}
+      - {label: "Orden", name: "order", widget: "number"}
+      - {label: "Color (HEX)", name: "color", widget: "string", default: "#00a1e4"}
+      - {label: "Url", name: "url", widget: "string", required: false}
+      - {label: "Imagen", name: "img", widget: "image"}
+
+  - name: "profesores" # Used in routes, e.g., /admin/collections/blog
+    label: "Profesores" # Used in the UI
+    editor:
+      preview: false
+    folder: "src/content/profesores" # The path to the folder where the documents are stored
+    identifier_field: "nombre"
+    create: true # Allow users to create new documents in this collection
+    slug: "{{slug}}" # Filename template, e.g., YYYY-MM-DD-title.md
+    format: "json"
+    fields: # The fields for each document, usually in front matter
+      - {label: "Nombre", name: "nombre", widget: "string"}
+      - {label: "Ocupación", name: "ocupacion", widget: "string"}
+      - {label: "Imagen", name: "thumbnail", widget: "image"}
+
+  - name: "testimonios" # Used in routes, e.g., /admin/collections/blog
+    label: "Testimonios" # Used in the UI
+    editor:
+      preview: false
+    folder: "src/content/testimonios" # The path to the folder where the documents are stored
+    identifier_field: "autor"
+    create: true # Allow users to create new documents in this collection
+    slug: "{{slug}}" # Filename template, e.g., YYYY-MM-DD-title.md
+    format: "json"
+    fields: # The fields for each document, usually in front matter
+      - {label: "Cita", name: "cita", widget: "text"}
+      - {label: "Autor", name: "autor", widget: "string"}
+      - {label: "Imagen", name: "imagen", widget: "image"}
+
+#  - name: "blog" # Used in routes, e.g., /admin/collections/blog
+#    label: "Posts" # Used in the UI
+#    folder: "src/pages/blog" # The path to the folder where the documents are stored
+#    create: true # Allow users to create new documents in this collection
+#    slug: "{{year}}-{{month}}-{{day}}-{{slug}}" # Filename template, e.g., YYYY-MM-DD-title.md
+#    format: "frontmatter"
+#    sort: "date:desc" # Default is title:asc
+#    fields: # The fields for each document, usually in front matter
+#      - {label: "Id", name: "id", widget: "hidden", default: "{{slug}}"}
+#      - {label: "Title", name: "title", widget: "string"}
+#      - {label: "Publish Date", name: "date", widget: "datetime", date_format: "DD/MM/YYYY", time_format: "HH:mm", picker_utc: true}
+#      - {label: "Featured Image", name: "thumbnail", widget: "image", required: false}
+#      - {label: "Body", name: "body", widget: "markdown"}

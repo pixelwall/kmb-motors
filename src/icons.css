@@ -1,0 +1,82 @@
+@font-face {
+	font-family: "Iconify Explorer Font";
+	src: url("/icons/iconfont.eot");
+	src: url("/icons/iconfont.eot") format("embedded-opentype"),
+		url("/icons/iconfont.ttf") format("truetype"),
+		url("/icons/iconfont.woff") format("woff"),
+		url("/icons/iconfont.woff2") format("woff2"),
+		url("/icons/iconfont.svg") format("svg");
+	font-weight: normal;
+	font-style: normal;
+}
+
+.i {
+	font-family: "Iconify Explorer Font" !important;
+	font-style: normal;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+}
+
+.i.jam\:cactus:before {
+	content: "\e001";
+}
+
+.i.jam\:chevron-down:before {
+	content: "\e002";
+}
+
+.i.jam\:chevron-left:before {
+	content: "\e003";
+}
+
+.i.jam\:chevron-right:before {
+	content: "\e004";
+}
+
+.i.jam\:chevron-up:before {
+	content: "\e005";
+}
+
+.i.jam\:facebook:before {
+	content: "\e006";
+}
+
+.i.jam\:heart:before {
+	content: "\e007";
+}
+
+.i.jam\:heart-f:before {
+	content: "\e008";
+}
+
+.i.jam\:hourglass:before {
+	content: "\e009";
+}
+
+.i.jam\:instagram:before {
+	content: "\e00a";
+}
+
+.i.jam\:moon:before {
+	content: "\e00b";
+}
+
+.i.jam\:search:before {
+	content: "\e00c";
+}
+
+.i.jam\:shopping-cart:before {
+	content: "\e00d";
+}
+
+.i.jam\:sun:before {
+	content: "\e00e";
+}
+
+.i.jam\:youtube:before {
+	content: "\e00f";
+}
+
+.i.mdi\:cash:before {
+	content: "\e010";
+}

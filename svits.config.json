@@ -1,0 +1,18 @@
+{
+  "name": "KMB Motors",
+  "shortName": "KMB Motors",
+  "description": "KMB Motors",
+  "author": {
+    "name": "Pixelwall Marketing",
+    "email": "",
+    "url": ""
+  },
+  "collections": [
+  ],
+  "hostname": "https://yescampus.io",
+  "sitemapUrls": [
+  ],
+  "routifyRuntimeConfig": {
+    "useHash": false
+  }
+}

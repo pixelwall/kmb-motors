@@ -1,0 +1,44 @@
+.vscode
+.idea
+node_modules
+
+# ---
+# Local
+# ---
+
+*.local
+
+# ---
+# Mac OS
+# ---
+
+.DS_Store
+* 2*
+
+# ---
+# Node
+# ---
+
+node_modules
+
+# ---
+# Vercel
+# ---
+
+.vercel
+
+# ---
+# Production
+# ---
+
+dist/
+dist-ssr/
+assets/**/*.webp
+.collections
+.routify
+
+# ---
+# Yarn
+# ---
+
+yarn-error.log
