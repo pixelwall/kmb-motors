@@ -64,12 +64,12 @@ module.exports = {
         'xxl': {'min': '1480px'}
       },
       fontFamily: {
-        'title': [
-          'Oxygen',
+        title: [
+          'Montserrat',
           ...defaultTheme.fontFamily.sans,
         ],
         sans: [
-          'Oxygen',
+          'Roboto',
           ...defaultTheme.fontFamily.sans,
         ],
         mono: [
@@ -102,7 +102,7 @@ module.exports = {
       },
 
       colors: {
-        'yes-blue': {
+        'kmb-blue': {
           50: '#F2F8FE',
           100: '#E6F1FC',
           200: '#C0DCF8',
@@ -114,7 +114,7 @@ module.exports = {
           800: '#013466',
           900: '#012344',
         },
-        'yes-gray': {
+        'kmb-gray': {
           50: '#F7F7F7',
           100: '#EFEFEF',
           200: '#D7D7D7',
@@ -125,18 +125,6 @@ module.exports = {
           700: '#3A3939',
           800: '#2B2B2B',
           900: '#1D1D1D',
-        },
-        'yes-orange': {
-          50: '#FFF7F5',
-          100: '#FFF0EC',
-          200: '#FED8CF',
-          300: '#FEC1B2',
-          400: '#FD9379',
-          500: '#FC643F',
-          600: '#E35A39',
-          700: '#973C26',
-          800: '#712D1C',
-          900: '#4C1E13',
         },
       },
     },

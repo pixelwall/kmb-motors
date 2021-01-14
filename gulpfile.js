@@ -65,7 +65,7 @@ exports.generateFavicons = generateFavicons
 const clean = () => {
   return del([
     'dist',
-    'assets/**/*.webp',
+    'public/**/*.webp',
   ])
 }
 exports.clean = clean
@@ -73,19 +73,19 @@ exports.clean = clean
 const generateWebps = (path) => {
   return gulp.src(`${path}/**/*`)
     .pipe(webp({
-      quality: 80,
+      quality: 60,
     }))
     .pipe(gulp.dest(path))
 }
 
-const generateWebpsPublic = () => generateWebps('assets')
+const generateWebpsPublic = () => generateWebps('public')
 exports.generateWebpsPublic = generateWebpsPublic
 
 const generateWebpsDist = () => generateWebps('dist')
 exports.generateWebpsDist = generateWebpsDist
 
 const injectFavicons = () => {
-  return gulp.src([ 'dist/index.html', 'dist/__app.html' ],{ allowEmpty: true })
+  return gulp.src('dist/index.html')
     .pipe(inject(gulp.src([`dist${faviconsConfig.path}${faviconsConfig.html}`]), {
       starttag: '<!-- inject:favicons -->',
       transform: (filepath, file) => {
@@ -102,11 +102,28 @@ const metadataContent = (cfg) => {
 }
 
 const injectMetadata = () => {
-  return gulp.src([ 'dist/index.html', 'dist/__app.html' ],{ allowEmpty: true })
+  return gulp.src('dist/index.html')
     .pipe(replace('<!-- inject:metadata -->', metadataContent(svitsConfig)))
     .pipe(gulp.dest('dist'))
 }
 exports.injectMetadata = injectMetadata
+
+
+const replacePreload = () => {
+  const { readFileSync } = fs
+  const html = readFileSync('./dist/index.html', 'utf-8')
+  const script = html.match(/src="\/(_assets\/index.\w+.js)"/)[1]
+  const scriptBuff = readFileSync('./dist/'+script, 'utf-8')
+  console.log(scriptBuff)
+  const folder = scriptBuff.match(/(_folder.\w+.js)/)[1]
+  console.log(folder)
+  const dest = `<link rel="modulepreload" href="/${script}" />
+<link rel="modulepreload" href="/_assets/${folder}" />`
+  return gulp.src('dist/index.html')
+    .pipe(replace('<!-- inject:preload -->', dest))
+    .pipe(gulp.dest('dist'))
+}
+exports.replacePreload = replacePreload
 
 const replaceRobotsTXT = () => {
   return gulp.src('dist/robots.txt')
@@ -172,9 +189,10 @@ const prod = gulp.series(
   injectFavicons,
   injectMetadata,
   cleanFaviconsHTML,
-  // updateServiceWorker,
+  updateServiceWorker,
   generateSitemapXML,
   replaceRobotsTXT,
+  replacePreload,
 )
 exports.prod = prod
 

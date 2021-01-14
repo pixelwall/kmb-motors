@@ -1,19 +1,9 @@
 <script>
-  import Test from '../components/Test.svelte'
-  import { goto } from '@roxi/routify'
+  import svitsConfig from '../../svits.config'
+  import { metatags } from '@roxi/routify'
+
+  metatags.title = svitsConfig.name
 </script>
 
-<div class="flex w-full h-screen bg-gradient-to-b from-blue-200 to-green-200">
-  <h1 tw="m-auto italic text-10rem text-raw-$hola">Hola</h1>
-  <p class="text-blue-500" on:click={$goto('/indexx')}>Index</p>
+<div class="w-full h-screen">
 </div>
-
-<style>
-  div {
-    --hola: 100, 100, 100;
-  }
-
-  :global(.a) {
-    @apply text-red-500;
-  }
-</style>

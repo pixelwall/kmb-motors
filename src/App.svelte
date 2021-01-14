@@ -1,5 +1,5 @@
 <script>
-  // import './sw/sw'
+  import './sw/sw'
   import { isOffline, updateAvailable } from './sw/store'
 
   import { Router } from '@roxi/routify/runtime'
@@ -8,8 +8,10 @@
   import { isChangingPage } from '@roxi/routify/runtime'
   import NProgress from 'nprogress'
 
+  import OfflineBanner from './components/OfflineBanner.svelte'
+  import BannerUpdate from './components/BannerUpdate.svelte'
+
   import svitsConfig from '../svits.config.json'
-  import Sw from './Serviceworker.svelte'
 
   NProgress.configure({
     // Pass in your configuration here, below is just how I like it
@@ -51,12 +53,6 @@
   }
 </script>
 
-<style global>
-  @import '@glidejs/glide/dist/css/glide.core.min.css';
-  @import '@glidejs/glide/dist/css/glide.theme.min.css';
-  @import 'prismjs-tomorrow-theme/prism-tomorrow.css';
-</style>
-
-<Sw/>
-
+<OfflineBanner/>
+<BannerUpdate/>
 <Router {routes} config={{ ...svitsConfig?.routifyRuntimeConfig }} />

@@ -6,13 +6,6 @@
 html {
 	@apply duration-200;
 	@apply transition-colors;
-}
-
-html, .blend {
-	background-color: #fff;
-}
-
-html.dark, .dark .blend {
 	background-color: rgb(30, 30, 30);
 }
 
@@ -25,28 +18,8 @@ pre, code {
 	@apply text-gray-400;
 }
 
-div {
-	cursor:  none;
-}
-
-p, h1, h2, h3, h4, h5, h6 {
-	cursor: text;
-}
-
-a {
-	cursor: pointer;
-}
-
-span {
-	cursor: auto;
-}
-
-span.i {
-	cursor: none;
-}
-
-button {
-	cursor: pointer;
+img, video {
+	aspect-ratio: attr(width) / attr(height);
 }
 
 [disabled] {
@@ -54,15 +27,15 @@ button {
 }
 
 .glide--swipeablee * {
-  cursor: grab !important;
-  cursor: -moz-grab !important;
-  cursor: -webkit-grab !important;
+	cursor: grab !important;
+	cursor: -moz-grab !important;
+	cursor: -webkit-grab !important;
 }
 
 .glide--draggingg * {
-  cursor: grabbing !important;
-  cursor: -moz-grabbing !important;
-  cursor: -webkit-grabbing !important;
+	cursor: grabbing !important;
+	cursor: -moz-grabbing !important;
+	cursor: -webkit-grabbing !important;
 }
 
 .content {
@@ -95,7 +68,7 @@ button {
 	@apply px-3;
 	@apply py-2;
 	@apply rounded-lg;
-	@apply text-yes-gray-700;
+	@apply text-kmb-gray-700;
 	@apply transform;
 	@apply duration-200;
 	border-color: transparent;
@@ -105,15 +78,15 @@ button {
 .btn-secondary-gray:hover {
 	@apply -translate-y-px;
 	@apply shadow;
-	@apply border-yes-gray-700;
+	@apply border-kmb-gray-700;
 }
 
 .dark .btn-secondary-gray {
-	@apply text-yes-gray-200;
+	@apply text-kmb-gray-200;
 }
 
 .dark .btn-secondary-gray:hover {
-	@apply text-yes-gray-700;
+	@apply text-kmb-gray-700;
 	border-color: transparent;
 	border-width: 2px;
 }
@@ -125,8 +98,8 @@ button {
 	@apply text-white;
 	@apply transform;
 	@apply duration-200;
-	@apply bg-yes-gray-700;
-	@apply border-yes-gray-700;
+	@apply bg-kmb-gray-700;
+	@apply border-kmb-gray-700;
 	border-width: 2px;
 }
 
@@ -134,7 +107,7 @@ button {
 	@apply px-3;
 	@apply py-2;
 	@apply rounded-lg;
-	@apply text-yes-blue-500;
+	@apply text-kmb-blue-500;
 	@apply transform;
 	@apply duration-200;
 	border-color: transparent;
@@ -144,26 +117,26 @@ button {
 .btn-secondary:hover {
 	@apply -translate-y-px;
 	@apply shadow;
-	@apply border-yes-blue-500;
+	@apply border-kmb-blue-500;
 }
 
 .btn-fill {
 	@apply px-3;
 	@apply py-2;
 	@apply rounded-lg;
-	@apply text-yes-blue-500;
+	@apply text-kmb-blue-500;
 	@apply transform;
 	@apply duration-200;
 	border-color: transparent;
 	border-width: 2px;
-	@apply border-yes-blue-500;
+	@apply border-kmb-blue-500;
 }
 
 .btn-fill:hover {
 	@apply -translate-y-px;
 	@apply shadow;
 	@apply text-white;
-	@apply bg-yes-blue-500;
+	@apply bg-kmb-blue-500;
 }
 
 .btn-primary {
@@ -173,8 +146,8 @@ button {
 	@apply text-white;
 	@apply transform;
 	@apply duration-200;
-	@apply bg-yes-blue-500;
-	@apply border-yes-blue-500;
+	@apply bg-kmb-blue-500;
+	@apply border-kmb-blue-500;
 	border-width: 2px;
 }
 

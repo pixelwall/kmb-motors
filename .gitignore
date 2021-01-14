@@ -33,7 +33,7 @@ node_modules
 
 dist/
 dist-ssr/
-assets/**/*.webp
+public/**/*.webp
 .collections
 .routify
 

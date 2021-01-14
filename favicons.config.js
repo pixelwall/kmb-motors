@@ -1,8 +1,7 @@
-const color = '#0273E3'
+const color = '#1E1E1E'
 
 const iconsProps = {
   // background: color,
-  offset: 5,
 }
 
 module.exports = {
@@ -32,24 +31,15 @@ module.exports = {
     },
     appleStartup: {
       ...iconsProps,
-      offset: 10
-    },
-    coast: {
-      ...iconsProps,
+      offset: 5
     },
     favicons: {
       ...iconsProps,
     },
     firefox: {
       ...iconsProps,
-      offset: 10,
+      offset: 5,
       overlayGlow: false
     },
-    windows: {
-      ...iconsProps,
-    },
-    yandex: {
-      ...iconsProps,
-    }
   }
 }
