@@ -15,7 +15,6 @@ module.exports = {
   start_url: '/',
 
   display: 'standalone',
-  orientation: 'portrait',
 
   logging: false,
   html: 'icons.html',
