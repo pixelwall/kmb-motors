@@ -4,6 +4,23 @@ export default [
     href: '/index',
   },
   {
+    titulo: 'Price guide',
+    href: '/guide',
+  },
+  {
+    titulo: 'Marketplace',
+    childrens: [
+      {
+        titulo: 'Sell your car',
+        href: '/sell',
+      },
+      {
+        titulo: 'New cars',
+        href: '/new-cars',
+      },
+    ],
+  },
+  {
     titulo: 'Our services',
     childrens: [
       {
@@ -11,8 +28,8 @@ export default [
         href: '/repairs',
       },
       {
-        titulo: 'Blah',
-        href: '/blah',
+        titulo: 'Dealers',
+        href: '/dealers',
       },
     ],
   },

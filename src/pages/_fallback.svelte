@@ -25,7 +25,7 @@
 <div class="flex w-full">
   <div class="py-16 m-auto overflow-hidden e404">
     {#if visible}
-      <div class="leading-none text-gray-500 i jam:cactus huge" in:fly={{y: -20, duration: 800}}></div>
+      <div class="leading-none text-kmb-gray-700 huge font-title" in:fly={{y: -20, duration: 800}}>404</div>
     {/if}
     <div class="flex flex-col items-center big">
       Oops, page doesn't found.

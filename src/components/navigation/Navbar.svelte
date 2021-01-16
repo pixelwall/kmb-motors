@@ -36,9 +36,7 @@
 <svelte:window bind:scrollY={y} on:resize={() => setHeight(navbar)}/>
 
 <header
-  class="
-    fixed z-10 w-full duration-200 {!isTransparent && top ? 'bg' : ''} pointer-events-none
-  "
+  class="fixed z-10 w-full pointer-events-none duration-200"
 >
   <div class="pointer-events-auto">
     <Sidebar bind:open={sidebar}/>
@@ -48,7 +46,7 @@
         <a href="/" title="Home" class="overflow-hidden duration-100">
           <img
             src="/images/logo.webp"
-            class="h-8 sm:h-12 duration-200 transform hover:scale-95"
+            class="h-8 sm:h-12 duration-200 transform hover:scale-95 logo"
             alt="logo"
           />
         </a>
@@ -116,8 +114,9 @@
   }
 
   .selected-nav {
-    @apply bg-kmb-blue-600;
+    /* @apply bg-kmb-blue-600; */
     @apply bg-opacity-25;
+    color: white;
   }
 
   .nav-link:hover {

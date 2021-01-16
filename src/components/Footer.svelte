@@ -1,21 +1,33 @@
-<script>
+<script lang="ts">
   import navs from './navigation/navigation'
+
+  $: isolated = navs.filter(e => !e.childrens)
+  $: childrens = navs.filter(e => e.childrens)
 </script>
 
 <footer class="py-8">
-  <div class="flex flex-col justify-between -my-4 md:flex-row content">
-    {#each navs as n, i}
+  <div class="flex flex-col justify-between -my-4 text-gray-400 md:flex-row content">
+    {#if isolated.length}
+      <div
+        class="flex flex-col my-4"
+      >
+        <p class="text-white title">Menu</p>
+        <div class="flex flex-col w-full mt-2">
+          {#each isolated as n}
+            <a href={n.href} class="my-1 hover:underline link">{n.titulo}</a>
+          {/each}
+        </div>
+      </div>
+    {/if}
+    {#each childrens as n, i}
       <div
         class="
                my-4
-               w-full section
-               text-gray-400 dark:text-gray-300
-               { i == navs.length - 1 ? 'md:text-right' : '' }
-               { n.childrens && i > 0 && i < navs.length - 1 ? 'md:mx-auto' : '' }
+               flex flex-col
+               { i == childrens.length - 1 ? 'md:text-right' : '' }
                "
       >
-        {#if n.childrens}
-          <p class="title">{n.titulo}</p>
+        <p class="text-white title">{n.titulo}</p>
           <!--p
             class="
                    flex items-center title
@@ -23,16 +35,11 @@
                   "
             ><span>{n.titulo}</span> <span class="i jam:chevron-down"></span></p
           -->
-          {#if n.childrens.length}
-            <div class="flex flex-col w-full mt-2 font-title">
-              {#each n.childrens as c}
-                <a href={c.href} class="my-1 hover:underline link">{c.titulo}</a>
-              {/each}
-            </div>
-          {/if}
-          {:else}
-            <a href={n.href} class="title hover:underline">{n.titulo}</a>
-        {/if}
+        <div class="flex flex-col w-full mt-2">
+          {#each n.childrens as c}
+            <a href={c.href} class="my-1 hover:underline link">{c.titulo}</a>
+          {/each}
+        </div>
       </div>
     {/each}
   </div>
@@ -45,13 +52,11 @@
 <style>
   @screen md {
     .section {
-      width: 25%;
     }
   }
 
   .title {
     @apply text-xl;
-    @apply uppercase;
     @apply font-title;
   }
 

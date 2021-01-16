@@ -19,11 +19,11 @@
 >
     <div class="fixed inset-x-0 bottom-0 z-50 pb-3 select-none sm:pb-5">
         <div class="px-3 mx-auto max-w-screen-xl sm:px-6 lg:px-8">
-            <div class="p-2 rounded-lg shadow-lg bg-yes-blue-600 sm:p-3">
+            <div class="p-2 bg-blue-600 rounded-lg shadow-lg sm:p-3">
                 <div class="flex flex-wrap items-center justify-between">
                     <div class="flex items-center flex-1 w-0">
                         {#if hasIcon}
-                            <span class="p-2 text-white rounded-lg bg-yes-blue-800">
+                            <span class="p-2 text-white bg-blue-800 rounded-lg">
                                 <slot name="icon">
                                     <svg class="w-6 h-6 text-white" stroke="currentColor" fill="none" viewBox="0 0 24 24" />
                                 </slot>
@@ -45,7 +45,7 @@
                             on:click={() => { dispatch('close') }}
                             type="button"
                             aria-label="Closes the banner"
-                            class="p-2 rounded-md hover:bg-yes-blue-400 focus:outline-none focus:bg-yes-blue-400 transition ease-in-out duration-150">
+                            class="p-2 rounded-md hover:bg-blue-400 focus:outline-none focus:bg-blue-400 transition ease-in-out duration-150">
                             <svg class="w-6 h-6 text-white" stroke="currentColor" fill="none" viewBox="0 0 24 24">
                               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
                             </svg>

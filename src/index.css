@@ -6,7 +6,7 @@
 html {
 	@apply duration-200;
 	@apply transition-colors;
-	background-color: rgb(30, 30, 30);
+	@apply bg-kmb-gray-900;
 }
 
 pre, code {

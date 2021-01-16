@@ -17,6 +17,7 @@ interface FlyParams {
   easing?: EasingFunction
   x?: number
   y?: number
+  unit?: string
   rotate?: number
   opacity?: number
 }
@@ -27,6 +28,7 @@ export function fly(node: Element, {
   easing = cubicOut,
   x = 0,
   y = 0,
+  unit = 'px',
   rotate = 0,
   opacity = 0
 }: FlyParams): TransitionConfig {
@@ -41,7 +43,7 @@ export function fly(node: Element, {
     duration,
     easing,
     css: (t, u) => `
-    transform: ${transform} translate(${(1 - t) * x}px, ${(1 - t) * y}px) rotate(${(1 - t) * rotate}deg);
+    transform: ${transform} translate(${(1 - t) * x}${unit}, ${(1 - t) * y}${unit}) rotate(${(1 - t) * rotate}deg);
     opacity: ${target_opacity - (od * u)}`
   }
 }

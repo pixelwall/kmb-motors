@@ -25,7 +25,7 @@
   <aside
     on:mouseenter={() => inside = true}
     on:mouseleave={() => inside = false}
-    class="absolute w-screen h-screen bg-fixed shadow font-title text-kmb-gray-200"
+    class="absolute w-screen h-screen bg-fixed shadow font-title text-kmb-gray-200 pattern"
     class:open
     transition:fade={{ x: -100, duration: 400 }}
   >
@@ -43,7 +43,7 @@
                 >
                   <p
                     class="flex items-center text-right cursor-pointer"
-                    in:fly={{ y: 40, duration: 800, rotate: -3, delay: 100 + (i * 500 / elements.length)}}
+                    in:fly={{ y: 100, unit: '%', duration: 800, rotate: 6, delay: 100 + (i * 800 / elements.length)}}
                   >{el.titulo}
                   <span class="mt-1 ml-2 cursor-pointer i jam:chevron-right">
                   </p>
@@ -56,7 +56,7 @@
                 >
                   <p
                     class="text-right cursor-pointer"
-                    in:fly={{ y: 40, duration: 800, rotate: -3, delay: 100 + (i * 500 / elements.length)}}
+                    in:fly={{ y: 100, unit: '%', duration: 800, rotate: 6, delay: 100 + (i * 800 / elements.length)}}
                     >{el.titulo}</p
                   >
                 </a>
@@ -83,7 +83,7 @@
                 class="block w-full text-xl lg:text-right nav-link"
                 href={$url(el.href)}
                 class:selected-nav={$isActive(el.href)}
-                in:fly={{ y: 50, rotate: -3, duration: 800, delay: 100 + (i * 500 / menu.childrens.length)}}
+                in:fly={{ y: 100, unit: '%', duration: 800, rotate: 6, delay: 100 + (i * 500 / menu.childrens.length)}}
                 >{el.titulo}</a
               >
             </div>
@@ -99,8 +99,6 @@
     transition: background-color 0.2s ease-in-out;
     background-color: rgba(10, 10, 10, 1);
     background-color: #0a0a0a;
-    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='250' height='30' viewBox='0 0 1000 120'%3E%3Cg fill='none' stroke='%23191919' stroke-width='4.9' %3E%3Cpath d='M-500 75c0 0 125-30 250-30S0 75 0 75s125 30 250 30s250-30 250-30s125-30 250-30s250 30 250 30s125 30 250 30s250-30 250-30'/%3E%3Cpath d='M-500 45c0 0 125-30 250-30S0 45 0 45s125 30 250 30s250-30 250-30s125-30 250-30s250 30 250 30s125 30 250 30s250-30 250-30'/%3E%3Cpath d='M-500 105c0 0 125-30 250-30S0 105 0 105s125 30 250 30s250-30 250-30s125-30 250-30s250 30 250 30s125 30 250 30s250-30 250-30'/%3E%3Cpath d='M-500 15c0 0 125-30 250-30S0 15 0 15s125 30 250 30s250-30 250-30s125-30 250-30s250 30 250 30s125 30 250 30s250-30 250-30'/%3E%3Cpath d='M-500-15c0 0 125-30 250-30S0-15 0-15s125 30 250 30s250-30 250-30s125-30 250-30s250 30 250 30s125 30 250 30s250-30 250-30'/%3E%3Cpath d='M-500 135c0 0 125-30 250-30S0 135 0 135s125 30 250 30s250-30 250-30s125-30 250-30s250 30 250 30s125 30 250 30s250-30 250-30'/%3E%3C/g%3E%3C/svg%3E");
-    background-attachment: fixed;
   }
 
   .buttons {
