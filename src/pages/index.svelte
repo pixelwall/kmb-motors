@@ -59,7 +59,7 @@
             class="z-20 w-64 h-64 overflow-hidden bg-blue-900 border-4 border-gray-500 transform sm:h-72 sm:w-72 lg:w-96 lg:h-96"
             style="border-top-right-radius: 1.5rem; border-bottom-left-radius: 1.5rem"
             >
-            <img src="/images/motor.jpg" alt="" class="object-cover w-full h-full">
+            <img src="/images/motor.webp" alt="" class="object-cover w-full h-full">
             </div
           >
         </div>
@@ -77,7 +77,7 @@
   <div class="relative w-full">
     <div class="relative">
       <div class="-z-10">
-        <div class="absolute w-full h-full bg-center bg-cover opacity-50 -z-10" style="background-image: linear-gradient(0deg, rgba(30, 66, 159, 0.7), rgba(30, 66, 159, 0.7)), url(/images/bg.jpg)"></div>
+        <div class="absolute w-full h-full bg-center bg-cover opacity-50 -z-10" style="background-image: linear-gradient(0deg, rgba(30, 66, 159, 0.7), rgba(30, 66, 159, 0.7)), url(/images/bg.webp)"></div>
         <div class="absolute w-full h-32 bg-gradient-to-b from-kmb-gray-900 to-transparent"></div>
         <div class="absolute bottom-0 w-full h-32 bg-gradient-to-t from-kmb-gray-900 to-transparent"></div>
       </div>
@@ -114,7 +114,7 @@
                 class="z-20 w-64 h-64 overflow-hidden bg-blue-900 border-4 border-gray-500 transform lg:h-72 lg:w-72 lg:w-96 lg:h-96"
                 style="border-top-right-radius: 1.5rem; border-bottom-left-radius: 1.5rem"
                 >
-                <img src="/images/oil.jpg" alt="" class="object-cover w-full h-full">
+                <img src="/images/oil.webp" alt="" class="object-cover w-full h-full">
                 </div
               >
             </div>
