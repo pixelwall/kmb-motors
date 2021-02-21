@@ -1,0 +1,33 @@
+.viewport {
+  --animate-x: 0;
+  --animate-y: 0;
+  --animate-s: 1;
+  --animate-s-x: var(--animate-s);
+  --animate-s-y: var(--animate-s);
+  --animate-r: 0deg;
+  --animate-r-x: 0deg;
+  --animate-r-y: 0deg;
+  --animate-time: 0.8s;
+}
+.viewport :global( .animate),
+.viewport:global(.animate) {
+  transition: transform var(--animate-time), opacity var(--animate-time);
+}
+
+
+.viewport:not(:global(.intersecting)) :global(.animate),
+.viewport:not(:global(.intersecting)):global(.animate) {
+  transition: transform var(--animate-time) 0s, opacity var(--animate-time) 0s;
+  opacity: 0;
+  transform:
+    scale3d(var(--animate-s-x), var(--animate-s-y), 0)
+    translate3d(var(--animate-x), var(--animate-y), 0)
+    rotateX(var(--animate-r-x))
+    rotateY(var(--animate-r-y))
+    rotateZ(var(--animate-r));
+}
+
+.viewport:not(:global(.intersecting)) :global(.animate:not(.animateOut)),
+.viewport:not(:global(.intersecting)):global(.animate:not(.animateOut)) {
+  transition: transform 0s 0s, opacity 0s 0s !important;
+}

@@ -1,0 +1,14 @@
+{
+  "version": "0.0.0",
+  "name": "KMB Motors",
+  "description": "Our large selection ensure that we have a vehicle just for you. Whether you are looking for a sedan, coupe, truck, or SUV. We look forward to seeing you soon!",
+  "icons": {
+    "60": "/favicons/firefox_app_60x60.png",
+    "128": "/favicons/firefox_app_128x128.png",
+    "512": "/favicons/firefox_app_512x512.png"
+  },
+  "developer": {
+    "name": "",
+    "url": ""
+  }
+}

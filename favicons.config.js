@@ -2,9 +2,17 @@ const color = '#1E1E1E'
 
 const iconsProps = {
   // background: color,
+  offset: 5,
 }
 
 module.exports = {
+  appName: 'KMB Motors',
+  appShortName: 'KMB Motors',
+  appDescription: 'Our large selection ensure that we have a vehicle just for you. Whether you are looking for a sedan, coupe, truck, or SUV. We look forward to seeing you soon!',
+
+  developerName: '',
+  developerURL: '',
+
   path: '/favicons/',
 
   background: color,
@@ -15,6 +23,7 @@ module.exports = {
   start_url: '/',
 
   display: 'standalone',
+  orientation: 'portrait',
 
   logging: false,
   html: 'icons.html',
@@ -30,15 +39,18 @@ module.exports = {
     },
     appleStartup: {
       ...iconsProps,
-      offset: 5
+      offset: 10
     },
     favicons: {
       ...iconsProps,
     },
     firefox: {
       ...iconsProps,
-      offset: 5,
+      offset: 10,
       overlayGlow: false
+    },
+    windows: {
+      ...iconsProps,
     },
   }
 }
