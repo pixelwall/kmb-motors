@@ -1,0 +1,105 @@
+.welcome {
+	@apply py-16;
+}
+
+.title {
+	@apply text-4xl;
+	@apply font-light;
+	color: white;
+	@apply font-title;
+	text-align: center;
+}
+
+.title :global(span) {
+	@apply text-5xl;
+	@apply font-bold;
+}
+
+.mainContainer {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+
+@screen sm {
+	.mainContainer {
+		flex-direction: row;
+	}
+}
+
+.description {
+	width: 100%;
+	text-align: justify;
+}
+
+@screen sm {
+	.description {
+		width: auto;
+		@apply pl-16;
+	}
+}
+
+@screen lg {
+	.description {
+		@apply pl-24;
+	}
+}
+
+.imageContainer {
+	position: relative;
+	display: flex;
+	justify-content: center;
+	width: 100%;
+	@apply -ml-4;
+	@apply py-14;
+}
+
+@screen sm {
+	.imageContainer {
+		width: auto;
+		margin-left: 0;
+	}
+}
+
+.imageFrameBack, .imageFrame {
+	@apply w-64;
+	@apply h-64;
+	overflow: hidden;
+	@apply border-4;
+	@apply border-gray-500;
+	border-top-right-radius: 1.5rem;
+	border-bottom-left-radius: 1.5rem;
+	@apply transform;
+}
+
+.imageFrame {
+	z-index: 20;
+	@apply bg-blue-900;
+}
+
+@screen sm {
+	.imageFrameBack, .imageFrame {
+		@apply w-72;
+		@apply h-72;
+	}
+}
+
+@screen lg {
+	.imageFrameBack, .imageFrame {
+		@apply w-96;
+		@apply h-96;
+	}
+}
+
+.imageFrameBack {
+	position: absolute;
+	@apply translate-x-4;
+	@apply translate-y-4;
+}
+
+@screen lg {
+	.imageFrameBack {
+		@apply translate-x-8;
+		@apply translate-y-8;
+	}
+}
