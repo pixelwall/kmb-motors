@@ -51,7 +51,7 @@ const colors = {
 }
 
 module.exports = {
-  purge: ['./**/*.{css,pcss}', './{pages,components}/**/*.{js,ts,jsx,tsx}'],
+  purge: ['./**/*.{css,pcss}', './{pages,components,www}/**/*.{js,ts,jsx,tsx}'],
   darkMode: 'class',
   theme: {
     extend: {
