@@ -4,10 +4,11 @@ import GoogleFonts from 'next-google-fonts'
 const Meta = () => (
   <>
     <GoogleFonts
-      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;800;900&family=Roboto:wght@300;400;700;900&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;800;900&family=Roboto:wght@300;400;700;900&display=swap"
     />
     <Head>
       <title>KMB Motors</title>
+      <meta name="description" content="Our large selection ensure that we have a vehicle just for you. Whether you are looking for a sedan, coupe, truck, or SUV. We look forward to seeing you soon!"/>
       <link rel="shortcut icon" href="/favicons/favicon.ico"/>
       <link rel="icon" type="image/png" sizes="16x16" href="/favicons/favicon-16x16.png"/>
       <link rel="icon" type="image/png" sizes="32x32" href="/favicons/favicon-32x32.png"/>

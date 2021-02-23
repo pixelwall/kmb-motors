@@ -52,7 +52,7 @@ const colors = {
 
 module.exports = {
   purge: ['./**/*.{css,pcss}', './{pages,components,www}/**/*.{js,ts,jsx,tsx}'],
-  darkMode: 'class',
+  darkMode: false,
   theme: {
     extend: {
       screens: {
