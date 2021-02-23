@@ -1,0 +1,43 @@
+.hero {
+	position: relative;
+	display: flex;
+	align-items: center;
+	width: 100%;
+	height: 100vh;
+	color: white;
+}
+
+.bg {
+	position: absolute;
+	opacity: 0.5;
+	width: 100%;
+	height: 100%;
+	z-index: -10;
+	@apply bg-gradient-to-b;
+	@apply from-blue-800;
+	@apply to-transparent;
+}
+
+.title {
+	@apply text-4xl;
+	@apply font-bold;
+	@apply font-title;
+}
+
+@screen lg {
+	.title {
+		@apply text-6xl;
+	}
+}
+
+.subtitle {
+	@apply text-2xl;
+	@apply font-light;
+	@apply font-title;
+}
+
+@screen lg {
+	.subtitle {
+		@apply text-5xl;
+	}
+}

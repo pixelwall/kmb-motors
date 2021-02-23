@@ -1,5 +1,5 @@
 import V, { setAnim } from '@/components/viewport'
-import styles from './welcome.module.css'
+import styles from './styles/welcome.module.css'
 
 import Image from 'next/image'
 
