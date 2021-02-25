@@ -1,0 +1,32 @@
+.header {
+	position: fixed;
+	z-index: 90;
+	width: 100%;
+	pointer-events: none;
+}
+
+.headerWrapper {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	height: 96px;
+	padding: 0 1.5rem;
+	pointer-events: none;
+}
+
+@screen lg {
+	.headerWrapper {
+		padding: 0 3rem;
+	}
+}
+
+.elements {
+	display: flex;
+	align-items: center;
+	@apply -mx-4;
+	@apply px-2;
+	@apply pointer-events-auto;
+	@apply text-base;
+	@apply font-title;
+	@apply text-kmb-gray-300;
+}

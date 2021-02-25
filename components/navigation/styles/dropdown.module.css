@@ -1,0 +1,66 @@
+.dropdown {
+	position: relative;
+}
+
+.title {
+	display: flex;
+	align-items: center;
+	@apply py-4;
+	@apply mx-4;
+}
+
+.title:focus {
+	outline: none;
+}
+
+.arrow {
+	@apply ml-2;
+	transition: transform 0.2s;
+	transform: rotate(0deg);
+}
+
+.dropdown:hover .arrow {
+	transform: rotate(180deg);
+}
+
+.wrapper {
+	position: absolute;
+	right: 0;
+	display: flex;
+	flex-direction: column;
+	@apply p-2;
+	@apply py-4;
+	@apply border;
+	@apply shadow-md;
+	@apply transform;
+	@apply duration-200;
+	@apply rounded-xl;
+	@apply origin-top-right;
+	@apply bg-kmb-gray-800;
+	@apply border-kmb-gray-700;
+}
+
+.wrapper {
+	opacity: 0;
+	pointer-events: none;
+	@apply scale-95;
+}
+
+.dropdown:hover .wrapper {
+	opacity: 1;
+	pointer-events: auto;
+	@apply scale-100;
+}
+
+.navLink {
+	display: block;
+	@apply py-1;
+	@apply mx-4;
+	@apply my-1;
+	transition: border 0.2s ease-in-out, color 0s ease-in-out;
+	border-bottom: 2px solid transparent;
+}
+
+.navLink:hover {
+	border-bottom: 2px solid #0273E3;
+}

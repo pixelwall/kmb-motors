@@ -1,7 +1,7 @@
 export default [
   {
     titulo: 'Home',
-    href: '/index',
+    href: '/',
   },
   {
     titulo: 'Price guide',

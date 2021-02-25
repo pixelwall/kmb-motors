@@ -1,5 +1,6 @@
 import Head from 'next/head'
 import type { ReactNode } from 'react'
+import Navbar from './navigation/navbar'
 import Footer from './footer'
 
 interface Props {
@@ -16,6 +17,7 @@ const Page = ({ title, children }: Props) => (
     ) : null}
 
     <div className="wrapper pattern">
+      <Navbar/>
       <main className="w-full">
         {children}
       </main>

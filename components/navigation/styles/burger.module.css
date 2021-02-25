@@ -1,0 +1,42 @@
+.hamburguer {
+	z-index: 20;
+	cursor: pointer;
+	transition: color 0.2s ease-in-out;
+	width: 32px;
+	height: 32px;
+	pointer-events: auto;
+	@apply mr-4;
+}
+
+@screen lg {
+	.hamburguer {
+		@apply mr-0;
+	}
+}
+
+.hamburguer:focus {
+	outline: none;
+}
+
+.hamburguer :global svg {
+    min-height: 24px;
+    transition: transform 0.2s ease-in-out;
+}
+
+.hamburguer :global line {
+	stroke: white;
+	stroke-width: 3;
+	transition: transform 0.2s ease-in-out, opacity 0.2s ease-in-out;
+}
+
+.hamburguer:global(.open) :global(svg) {
+	transform: scale(0.7) translate(1px, -4px)
+}
+
+.hamburguer:global(.open) :global(#top) {
+	transform: translate(13px, 1px) rotate(45deg)
+}
+
+.hamburguer:global(.open) :global(#bottom) {
+	transform: translate(-11px, 16px) rotate(-45deg)
+}
