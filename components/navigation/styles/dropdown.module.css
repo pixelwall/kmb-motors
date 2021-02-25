@@ -32,8 +32,6 @@
 	@apply py-4;
 	@apply border;
 	@apply shadow-md;
-	@apply transform;
-	@apply duration-200;
 	@apply rounded-xl;
 	@apply origin-top-right;
 	@apply bg-kmb-gray-800;
@@ -41,15 +39,25 @@
 }
 
 .wrapper {
-	opacity: 0;
-	pointer-events: none;
-	@apply scale-95;
+	display: none;
 }
 
 .dropdown:hover .wrapper {
-	opacity: 1;
+	display: flex;
 	pointer-events: auto;
-	@apply scale-100;
+	animation: fade_in_show 0.2s ease-in-out both;
+}
+
+@keyframes fade_in_show {
+	0% {
+		opacity: 0;
+		transform: scale(0.95)
+	}
+
+	100% {
+		opacity: 1;
+		transform: scale(1)
+	}
 }
 
 .navLink {

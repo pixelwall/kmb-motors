@@ -32,7 +32,7 @@
 }
 
 .subtitle {
-	@apply text-2xl;
+	@apply text-3xl;
 	@apply font-light;
 	@apply font-title;
 }
