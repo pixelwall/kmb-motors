@@ -4,6 +4,7 @@ const withPlugins = require('next-compose-plugins')
 const dev = process.env.NODE_ENV !== 'production'
 
 const nextConfig = {
+  reactStrictMode: true,
   webpack: (config, { dev, isServer }) => {
     if (!dev && !isServer) {
       Object.assign(config.resolve.alias, {

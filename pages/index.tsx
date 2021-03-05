@@ -1,1 +1,1 @@
-export { default } from '@/www/pages/index'
+export { default, getStaticProps } from '@/www/pages/index'

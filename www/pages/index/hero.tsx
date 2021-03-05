@@ -1,7 +1,7 @@
 import V, { setAnim } from '@/components/viewport'
 import styles from './styles/hero.module.css'
 
-const Hero = () => (
+const Hero = ({ slogan }: { slogan?: string }) => (
   <div className={styles['hero']}>
     <div className={styles['bg']}/>
     <div className="flex content">
@@ -12,7 +12,7 @@ const Hero = () => (
         <h2
           className={`${styles['subtitle']} animate`}
           style={{transitionDelay: '100ms'}}
-        >Drive with confidence</h2>
+        >{slogan}</h2>
       </V>
     </div>
   </div>

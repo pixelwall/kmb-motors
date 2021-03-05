@@ -1,0 +1,15 @@
+html {
+	@apply bg-kmb-gray-900;
+}
+
+body {
+	@apply p-safe;
+	@apply min-h-screen;
+	@apply antialiased;
+	@apply text-kmb-gray-300;
+
+	/* PWA enhancements */
+	-webkit-overflow-scrolling: touch;
+	-webkit-tap-highlight-color: transparent;
+	-webkit-touch-callout: none;
+}

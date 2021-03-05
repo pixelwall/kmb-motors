@@ -35,6 +35,7 @@
     "next-images": "^1.7.0",
     "next-plugins": "^1.0.3",
     "postcss": "^8.2.5",
+    "postcss-import": "^14.0.0",
     "tailwindcss": "^2.0.3",
     "tailwindcss-safe-area": "^0.1.1",
     "typescript": "^4.1.3",

@@ -1,11 +1,25 @@
 import Page from '@/components/page'
 import Hero from './hero'
-import Welcome from './welcome'
+import Welcome, {WelcomeProps} from './welcome'
+import data from './data'
 
-const Index = () => (
+export const getStaticProps = () => {
+  return {
+    props: {
+      ...data
+    }
+  }
+}
+
+interface IndexProps {
+  slogan?: string
+  welcome?: WelcomeProps
+}
+
+const Index = (data: IndexProps) => (
   <Page>
-    <Hero/>
-    <Welcome/>
+    <Hero {...data}/>
+    <Welcome {...data.welcome}/>
   </Page>
 )
 

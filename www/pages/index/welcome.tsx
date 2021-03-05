@@ -3,7 +3,11 @@ import styles from './styles/welcome.module.css'
 
 import Image from 'next/image'
 
-const Welcome = () => (
+export interface WelcomeProps {
+  description?: string
+}
+
+const Welcome = ({ description }: WelcomeProps) => (
   <div className={`content ${styles.welcome}`}>
     <V className="mb-12 animate" oneWay style={setAnim({y: '-0.5rem', time: '1s'})}>
       <h2 className={styles.title}>Welcome to<br/><span>KMB Motors</span></h2>
@@ -17,11 +21,7 @@ const Welcome = () => (
       </V>
       <V className={`${styles.description} animate`} style={setAnim({x: '1rem'})}>
         <img src="/images/logo.svg" className="w-full mb-6" alt="KMB Motors"/>
-        <p>
-          Our large selection ensure that we have a vehicle just for you. Whether
-          you are looking for a sedan, coupe, truck, or SUV. We look forward to
-          seeing you soon!
-        </p>
+        <p>{description}</p>
       </V>
     </div>
   </div>
