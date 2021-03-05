@@ -16,6 +16,9 @@ export default function Navbar() {
   }
 
   useEffect(() => {
+    if (scrollY === null) {
+      scrollHander()
+    }
     window.addEventListener('scroll', scrollHander, { passive: true })
     return () => (window.removeEventListener('scroll', scrollHander))
   })
