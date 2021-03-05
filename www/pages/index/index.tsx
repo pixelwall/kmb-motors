@@ -1,15 +1,6 @@
 import Page from '@/components/page'
 import Hero from './hero'
-import Welcome, {WelcomeProps} from './welcome'
-import data from './data'
-
-export const getStaticProps = () => {
-  return {
-    props: {
-      ...data
-    }
-  }
-}
+import Welcome, { WelcomeProps } from './welcome'
 
 interface IndexProps {
   slogan?: string
