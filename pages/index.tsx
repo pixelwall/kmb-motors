@@ -7,7 +7,7 @@ query HomepageQuery {
     slogan
     description
     welcomeImage {
-      responsiveImage(imgixParams: {w: "800", h: "800", fit: crop}) {
+      responsiveImage(imgixParams: {w: "800", h: "800", fit: crop, auto: format}) {
         ...responsiveImageFragment
       }
     }
