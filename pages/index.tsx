@@ -1,10 +1,27 @@
-import data from '@/www/pages/index/data'
-export { default } from '@/www/pages/index'
+import { request, responsiveImageFragment } from '@/lib/datocms'
+export { default,  } from '@/www/pages/index'
 
-export const getStaticProps = () => {
+const HOMEPAGE_QUERY = `
+query HomepageQuery {
+  homepage {
+    slogan
+    description
+    welcomeImage {
+      responsiveImage(imgixParams: {w: "800", h: "800", fit: crop}) {
+        ...responsiveImageFragment
+      }
+    }
+  }
+}
+
+${responsiveImageFragment}
+`
+
+export const getStaticProps = async () => {
+  const { homepage } = await request({ query: HOMEPAGE_QUERY })
   return {
     props: {
-      ...data
+      ...homepage,
     }
   }
 }

@@ -1,16 +1,16 @@
 import Page from '@/components/page'
-import Hero from './hero'
+import Hero, { HeroProps } from './hero'
 import Welcome, { WelcomeProps } from './welcome'
 
-interface IndexProps {
-  slogan?: string
-  welcome?: WelcomeProps
+interface IndexProps extends
+  HeroProps,
+  WelcomeProps {
 }
 
 const Index = (data: IndexProps) => (
   <Page>
     <Hero {...data}/>
-    <Welcome {...data.welcome}/>
+    <Welcome {...data}/>
   </Page>
 )
 

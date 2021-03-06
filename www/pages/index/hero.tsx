@@ -1,7 +1,11 @@
 import V, { setAnim } from '@/components/viewport'
 import styles from './styles/hero.module.css'
 
-const Hero = ({ slogan }: { slogan?: string }) => (
+export interface HeroProps {
+  slogan?: string
+}
+
+const Hero = ({ slogan }: HeroProps) => (
   <div className={styles['hero']}>
     <div className={styles['bg']}/>
     <div className="flex content">

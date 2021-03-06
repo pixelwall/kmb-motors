@@ -32,6 +32,9 @@
 	text-align: justify;
 }
 
+.descriptionContent {
+}
+
 @screen sm {
 	.description {
 		width: auto;
@@ -74,7 +77,6 @@
 
 .imageFrame {
 	z-index: 20;
-	@apply bg-blue-900;
 }
 
 @screen sm {
