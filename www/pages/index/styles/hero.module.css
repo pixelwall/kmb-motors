@@ -19,7 +19,7 @@
 }
 
 .title {
-	@apply text-4xl;
+	@apply text-5xl;
 	@apply mb-4;
 	@apply font-bold;
 	@apply font-title;
@@ -37,7 +37,7 @@
 	@apply font-title;
 }
 
-@screen lg {
+@screen sm {
 	.subtitle {
 		@apply text-5xl;
 	}
