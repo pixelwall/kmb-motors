@@ -19,7 +19,7 @@
 }
 
 .title {
-	@apply text-5xl;
+	@apply text-4xl;
 	@apply mb-4;
 	@apply font-bold;
 	@apply font-title;
