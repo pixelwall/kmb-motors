@@ -81,7 +81,7 @@
 	@apply my-1;
 	@apply text-xl;
 	opacity: 0;
-	transform: translateX(-100%);
+	transform: translateX(-50%);
 }
 
 .backButton :global(span) {
@@ -96,7 +96,7 @@
 @keyframes backButtonAnimation {
 	0% {
 		opacity: 0;
-		transform: translateX(-100%);
+		transform: translateX(-50%);
 	}
 	100% {
 		opacity: 1;
