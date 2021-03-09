@@ -32,7 +32,7 @@
 	}
 }
 
-.sidebarLink {
+.sidebarLink, .childLink {
 	margin: 1rem 0;
 	padding: 0.2rem 0;
 	display: flex;
@@ -46,16 +46,86 @@
 	@apply text-4xl;
 }
 
-.sidebarLink :global(p) {
-	transition: transform 1.5s cubic-bezier(0.455, 0.03, 0.515, 0.955) 0s;
-	padding: 0.1rem 0;
+.childLink {
+	@apply text-xl;
+	margin: 1rem 0;
 }
 
-.sidebar:not(:global(.open)) .sidebarLink :global(p) {
-	transition: transform 0s cubic-bezier(0.455, 0.03, 0.515, 0.955) 0.3s !important;
+.sidebarLink :global(p), .childLink :global(p) {
+	padding: 0.1rem 0;
 	transform: translateY(200%) rotate(8deg);
 }
 
-.sidebarLink:hover {
+.sidebar:global(.open) .sidebarLink :global(p),
+.sidebar:global(.open) .childLink :global(p) {
+	padding: 0.1rem 0;
+	animation: sidebarLinkAnimation 1.5s cubic-bezier(0.455, 0.03, 0.515, 0.955) alternate forwards;
+}
+
+@keyframes sidebarLinkAnimation {
+	0% {
+		transform: translateY(200%) rotate(8deg);
+	}
+	100% {
+		transform: translateY(0) rotate(0deg);
+	}
+}
+
+.sidebarLink:hover, .childLink:hover {
 	--border: white;
+}
+
+.backButton {
+	display: flex;
+	cursor: pointer;
+	@apply my-1;
+	@apply text-xl;
+	opacity: 0;
+	transform: translateX(-100%);
+}
+
+.backButton :global(span) {
+	@apply mr-2;
+	cursor: pointer;
+}
+
+.sidebar:global(.open) .backButton {
+	animation: backButtonAnimation 0.8s alternate forwards;
+}
+
+@keyframes backButtonAnimation {
+	0% {
+		opacity: 0;
+		transform: translateX(-100%);
+	}
+	100% {
+		opacity: 1;
+		transform: translateX(0);
+	}
+}
+
+.childTitle {
+	@apply text-4xl;
+	@apply py-1;
+	@apply my-2;
+	opacity: 0;
+}
+
+.sidebar:global(.open) .childTitle {
+	animation: childTitleAnimation 0.8s alternate forwards;
+}
+
+@keyframes childTitleAnimation {
+	0% {
+		opacity: 0;
+	}
+	100% {
+		opacity: 1;
+	}
+}
+
+.childMenuWrapper {
+	overflow-x: hidden;
+	overflow-y: auto;
+	@apply mb-6;
 }

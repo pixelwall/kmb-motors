@@ -1,20 +1,32 @@
-/// <reference lib="dom" />
-import type { RefObject, CSSProperties } from 'react'
+import { RefObject, CSSProperties, useState, createContext, useContext } from 'react'
 import { useRef, useEffect } from 'react'
+import { useOutsideClick } from '@/lib/hooks'
 import links from './navigation'
 import Link from 'next/link'
 import s from './styles/sidebar.module.css'
 
-const ParentLink = ({idx, title, href, childrens}: {
+interface ChildrenMenu {
+  title?: string
+  childrens?: any[]
+}
+
+type ChildState = [ChildrenMenu, React.Dispatch<ChildrenMenu>]
+
+const sidebarContext = createContext<ChildState>([null, null])
+const useChildState = () => useContext(sidebarContext)
+
+const ParentLink = (link: {
   idx: number,
-  title: string,
+  title?: string,
   href?: string,
   childrens?: any[],
 }) => {
-  const css: CSSProperties = { transitionDelay: `${(idx * 200) - 300}ms`, paddingRight: '0.5rem' }
+  const { idx, title, href, childrens } = link
+  const css: CSSProperties = { animationDelay: `${(( idx - 1 ) * 200) - 300}ms`, paddingRight: '0.5rem' }
+  const [, setChildMenu] = useChildState()
   if (childrens) {
     return (
-      <div className={s.sidebarLink}>
+      <div className={s.sidebarLink} onClick={() => setChildMenu(link)}>
         <p
           className="flex items-center text-right cursor-pointer"
           style={css}
@@ -38,7 +50,7 @@ const ParentLink = ({idx, title, href, childrens}: {
 }
 
 const Parents = () => (
-  <div>
+  <div className="mb-6" style={{overflowY: 'auto'}}>
     {links.map((l, idx) => (
       <ParentLink
         key={idx}
@@ -51,44 +63,88 @@ const Parents = () => (
   </div>
 )
 
-const useOutsideClick = (ref: RefObject<HTMLElement>, callback: CallableFunction) => {
-  const handleClick = (e: MouseEvent) => {
-    if (!ref.current?.contains(e.target as Node)) {
-      callback()
-    }
-  }
-
-  useEffect(() => {
-    document.addEventListener('click', handleClick)
-
-    return () => {
-      document.removeEventListener('click', handleClick)
-    }
-  })
+const ChildLink = (link: {
+  idx: number,
+  title?: string,
+  href?: string,
+}) => {
+  const { idx, title, href } = link
+  const css: CSSProperties = { animationDelay: `${(( idx - 1 ) * 200) - 300}ms`, paddingRight: '0.5rem' }
+  return (
+    <Link href={href || '/'}>
+      <a className={s.childLink}>
+        <p style={css}>{title}</p>
+      </a>
+    </Link>
+  )
 }
 
-export default function Sidebar({ open = false, toggle }: { open: boolean, toggle: () => void }) {
-  const sidebarRef: RefObject<HTMLElement> = useRef(null)
+const Childs = () => {
+  const [childMenu, setChildMenu] = useChildState()
+  return (
+    <>
+      <button
+        className={s.backButton}
+        onClick={() => setChildMenu(null)}
+      >
+        <span className="i jam:chevron-left"/>
+        Back
+      </button>
+      <p className={s.childTitle}>{childMenu.title}</p>
+      <div className={s.childMenuWrapper}>
+        {childMenu.childrens.map((l, idx) => (
+          <ChildLink {...l} title={l.titulo} idx={idx} key={idx}/>
+        ))}
+      </div>
+    </>
+  )
+}
 
-  useOutsideClick(sidebarRef, () => {
-    if (open) {
-      toggle()
-    }
-  })
+const Wrapper = () => {
+  const [childMenu] = useChildState()
+
+  useEffect(() => {
+    console.log(childMenu)
+  }, [childMenu])
+
+  return (
+    <div className={s.sidebarWrapper}>
+      {childMenu ? <Childs/> : <Parents/>}
+    </div>
+  )
+}
+
+export interface SidebarProps {
+  open: boolean
+  toggle: () => void
+}
+
+const Sidebar = ({ open = false, toggle }: SidebarProps) => {
+  const sidebarRef: RefObject<HTMLElement> = useRef(null)
+  const sidebarState: ChildState = useState(null)
+  const [,setSidebarState] = sidebarState
 
   useEffect(() => {
     document.documentElement.classList.toggle('overflow-hidden', open)
   }, [open])
 
+  useEffect(() => {
+    if (!open) {
+      setSidebarState(null)
+    }
+  }, [open])
+
   return (
-    <aside
-      className={`${s.sidebar} ${open ? 'open' : ''} pattern`}
-      ref={sidebarRef}
-      style={{ opacity: `${open ? '1' : '0'}` }}
-    >
-      <div className={s.sidebarWrapper}>
-        <Parents/>
-      </div>
-    </aside>
+    <sidebarContext.Provider value={sidebarState}>
+      <aside
+        className={`${s.sidebar} ${open ? 'open' : ''} pattern`}
+        ref={sidebarRef}
+        style={{ opacity: `${open ? '1' : '0'}` }}
+      >
+        <Wrapper/>
+      </aside>
+    </sidebarContext.Provider>
   )
 }
+
+export default Sidebar

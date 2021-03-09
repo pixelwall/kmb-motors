@@ -21,7 +21,7 @@ const Welcome = ({ description, welcomeImage }: WelcomeProps) => (
         <div className={styles.imageFrame}>
           <Image
             data={{
-              ...welcomeImage.responsiveImage,
+              ...welcomeImage?.responsiveImage,
               alt: 'Welcome to KMB Motors'
             }}
           />

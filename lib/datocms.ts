@@ -14,7 +14,7 @@ export function request({ query, variables, preview }: {
         authorization: `Bearer ${process.env.DATOCMS_API_TOKEN}`,
       },
     })
-    return client.request(query, variables)
+    return process.env.OFFLINE ? Promise.resolve({}) : client.request(query, variables)
 }
 
 export const responsiveImageFragment = `
