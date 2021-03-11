@@ -12,7 +12,6 @@ const Index = (data: IndexProps) => (
     <Hero {...data}/>
     <Welcome {...data}/>
     <Inventory {...data}/>
-    <Services/>
   </Page>
 )
 
