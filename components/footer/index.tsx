@@ -1,7 +1,7 @@
 import Link from 'next/link'
-import navs from '@/components/navigation/navigation'
+import navs from '@/lib/navigation'
 import styles from './footer.module.css'
-import {Fragment} from 'react'
+import { Fragment } from 'react'
 
 const MadeBy = () => (
   <div className={styles['madeBy']}>

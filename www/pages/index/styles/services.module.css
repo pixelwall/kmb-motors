@@ -1,0 +1,33 @@
+.bg-wrapper {
+	z-index: -10;
+}
+
+.bg, .bg-pre, .bg-post {
+	width: 100%;
+	position: absolute;
+}
+
+.bg {
+	z-index: -10;
+	background-position: center;
+	height: 100%;
+	background-image: linear-gradient(0deg, rgba(30, 66, 159, 0.7), rgba(30, 66, 159, 0.7)), url(/images/bg.jpg);
+	opacity: 0.5;
+}
+
+.bg-pre, .bg-post {
+	@apply h-32;
+}
+
+.bg-pre {
+	@apply bg-gradient-to-b;
+	@apply from-kmb-gray-900;
+	@apply to-transparent;
+}
+
+.bg-post {
+	bottom: 0;
+	@apply bg-gradient-to-t;
+	@apply from-kmb-gray-900;
+	@apply to-transparent;
+}

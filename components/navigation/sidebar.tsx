@@ -1,7 +1,7 @@
 import { RefObject, CSSProperties, useState, createContext, useContext } from 'react'
 import { useRef, useEffect } from 'react'
 import { useOutsideClick } from '@/lib/hooks'
-import links from './navigation'
+import links from '@/lib/navigation'
 import Link from 'next/link'
 import s from './styles/sidebar.module.css'
 

@@ -4,7 +4,7 @@ import Hamburger from './hamburguer'
 import Sidebar from './sidebar'
 import Dropdown from './dropdown'
 import s from './styles/navbar.module.css'
-import nav from './navigation'
+import nav from '@/lib/navigation'
 
 export default function Navbar() {
   const [ sidebar, setSidebar ] = useState(false)

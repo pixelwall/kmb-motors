@@ -5,7 +5,7 @@ import Footer from './footer'
 
 interface Props {
   title?: string
-  children: ReactNode
+  children?: ReactNode
 }
 
 const Page = ({ title, children }: Props) => (
@@ -18,7 +18,7 @@ const Page = ({ title, children }: Props) => (
 
     <div className="wrapper pattern">
       <Navbar/>
-      <main className="w-full">
+      <main className="flex-grow w-full">
         {children}
       </main>
       <Footer/>
