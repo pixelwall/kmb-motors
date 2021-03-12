@@ -121,11 +121,8 @@
 
 .input:focus {
 	outline: none;
-	@apply border-black;
-}
-
-.dark .input:focus {
 	@apply border-white;
+	@apply text-white;
 }
 
 .t-p {

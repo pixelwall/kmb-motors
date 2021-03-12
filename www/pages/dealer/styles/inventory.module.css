@@ -1,0 +1,35 @@
+.inventory {
+	@apply py-16;
+}
+
+.title {
+	@apply text-4xl;
+	@apply font-light;
+	color: white;
+	@apply font-title;
+	text-align: center;
+}
+
+.title :global(span) {
+	@apply text-5xl;
+	@apply font-bold;
+}
+
+.goTo {
+	@apply text-xl;
+	color: white;
+	@apply font-title;
+	@apply flex;
+	@apply items-center;
+	text-align: center;
+	@apply mx-auto
+}
+
+.goTo :global(span) {
+ 	@apply duration-200;
+ 	@apply pl-2;
+}
+
+.goTo:hover :global(span) {
+ 	@apply pl-4;
+}

@@ -1,16 +1,9 @@
 import { getGlobalData, request, responsiveImageFragment, responsiveImageHelper } from '@/lib/datocms'
-export { default,  } from '@/www/pages/index'
+export { default,  } from '@/www/pages/dealer'
 
 const HOMEPAGE_QUERY = `
-query HomepageQuery {
-  homepage {
-    slogan
-    description
-    welcomeImage {
-      ${responsiveImageHelper({w: 500, h: 500, fit: 'crop'})}
-    }
-  }
-  allDealerInventories(first: 3) {
+query DealerQuery {
+  allDealerInventories {
     name
     slug
     images {

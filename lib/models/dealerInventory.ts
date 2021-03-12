@@ -15,4 +15,5 @@ export interface Vehicle {
   vehicleStatus?: string
   brand?: string
   year?: number
+  price?: number
 }
