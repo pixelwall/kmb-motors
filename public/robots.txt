@@ -1,0 +1,4 @@
+User-agent: *
+Disallow:
+
+Sitemap: https://kmbmotors.com/sitemap.xml
