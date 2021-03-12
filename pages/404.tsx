@@ -5,8 +5,8 @@ const Page404 = (data: { globalData?: any }) => (
   <Page {...data}/>
 )
 
-export function getStaticProps() {
-  const globalData = getGlobalData()
+export async function getStaticProps() {
+  const globalData = await getGlobalData()
   return {
     props: {
       globalData
