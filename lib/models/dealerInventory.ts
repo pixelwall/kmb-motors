@@ -1,11 +1,12 @@
 import { ResponsiveImageType } from 'react-datocms'
+import { CMSType } from './cms'
 
-export interface DealerCategory {
+export interface DealerCategory extends CMSType {
   name?: string
   slug?: string
 }
 
-export interface Vehicle {
+export interface Vehicle extends CMSType {
   name?: string
   slug?: string
   category?: DealerCategory
