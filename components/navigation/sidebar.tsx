@@ -4,6 +4,7 @@ import { useOutsideClick } from '@/lib/hooks'
 import links from '@/lib/navigation'
 import Link from 'next/link'
 import s from './styles/sidebar.module.css'
+import { useGlobalDataContext } from '../page'
 
 interface ChildrenMenu {
   title?: string
@@ -49,19 +50,22 @@ const ParentLink = (link: {
   }
 }
 
-const Parents = () => (
-  <div className="mb-6" style={{overflowY: 'auto'}}>
-    {links.map((l, idx) => (
-      <ParentLink
-        key={idx}
-        title={l.titulo}
-        idx={idx}
-        href={l.href}
-        childrens={l.childrens}
-      />
-    ))}
-  </div>
-)
+const Parents = () => {
+  const globalData = useGlobalDataContext()
+  return (
+    <div className="mb-6" style={{overflowY: 'auto'}}>
+      {links(globalData).map((l, idx) => (
+        <ParentLink
+          key={idx}
+          title={l.titulo}
+          idx={idx}
+          href={l.href}
+          childrens={l.childrens}
+        />
+      ))}
+    </div>
+  )
+}
 
 const ChildLink = (link: {
   idx: number,

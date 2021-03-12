@@ -43,7 +43,13 @@
 	--border: transparent;
 	border-bottom: 2px solid var(--border);
 	transition: border-color 0.1s;
-	@apply text-4xl;
+	@apply text-3xl;
+}
+
+@screen sm {
+	.sidebarLink {
+		@apply text-4xl;
+	}
 }
 
 .childLink {

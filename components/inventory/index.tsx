@@ -5,12 +5,14 @@ import Link from 'next/link'
 
 export const VehiclesContainer = ({ vehicles }: { vehicles?: Vehicle[] }) => (
   <div
-    className="flex flex-col w-full space-x-8 sm:space-x-0 sm:space-x-8 sm:flex-row sm:justify-between"
+    className="w-full grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xxl:grid-cols-3 gap-6"
   >
     {vehicles?.map((v, i) => (
-      <Viewport className="w-full sm:w-1/2 lg:w-1/4 animate" style={setAnim({y: '0.5rem'})} oneWay>
+      <>
+      <Viewport className="w-full animate" style={setAnim({y: '0.5rem'})} oneWay>
         <VehicleCard {...v} key={i}/>
       </Viewport>
+      </>
     ))}
   </div>
 )
@@ -32,9 +34,9 @@ export const VehicleCard = ({
 
   return (
     <div
-      className="w-full overflow-hidden border shadow-lg rounded-xl border-kmb-gray-700 duration-200 transform hover:-translate-y-1 hover:shadow-xl bg-kmb-gray-900"
+      className="w-full overflow-hidden border shadow-lg rounded-xl border-kmb-gray-700 duration-500 transform hover:-translate-y-1 hover:shadow-xl bg-kmb-gray-900"
     >
-      <div className="bg-gray-600 pattern bg-opacity-10">
+      <div className="bg-gray-600 pattern bg-opacity-20">
         <Image
           data={{
             ...image?.responsiveImage,
@@ -45,10 +47,10 @@ export const VehicleCard = ({
 
         <div className="p-4 t-p">
           <div className="pb-4 border-b border-kmb-gray-600">
-            <h2 className="mb-4 text-white t-h2 font-title">{name}</h2>
-            <FieldDesc title="Status" text={vehicleStatus}/>
+            <h2 className="text-2xl font-bold text-white font-title">{name}</h2>
           </div>
           <div className="pt-4 space-y-2">
+            <FieldDesc title="Status" text={vehicleStatus}/>
             <FieldDesc title="Type of vehicle" text={category.name}/>
             <FieldDesc title="Brand" text={brand}/>
             <FieldDesc title="Year" text={year}/>

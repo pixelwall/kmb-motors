@@ -10,11 +10,11 @@ query HomepageQuery {
       ${responsiveImageHelper({w: 500, h: 500, fit: 'crop'})}
     }
   }
-  allDealerInventories(first: 4) {
+  allDealerInventories(first: 3) {
     name
     slug
     images {
-      ${responsiveImageHelper({w: 128, h: 128, fit: 'crop'})}
+      ${responsiveImageHelper({w: 324, h: 256, fit: 'crop'})}
     }
     category {
       name
@@ -24,17 +24,22 @@ query HomepageQuery {
     brand
     year
   }
+  allDealerCategories {
+    name
+    slug
+  }
 }
 
 ${responsiveImageFragment}
 `
 
 export const getStaticProps = async () => {
-  const { homepage, allDealerInventories } = await request({ query: HOMEPAGE_QUERY })
+  const { homepage, allDealerInventories, allDealerCategories } = await request({ query: HOMEPAGE_QUERY })
   return {
     props: {
       ...homepage,
       vehicles: allDealerInventories,
+      globalData: allDealerCategories,
     }
   }
 }

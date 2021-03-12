@@ -1,15 +1,20 @@
 import Head from 'next/head'
-import type { ReactNode } from 'react'
+import { ReactNode, useContext } from 'react'
 import Navbar from './navigation/navbar'
 import Footer from './footer'
+import { createContext } from 'react'
 
 interface Props {
   title?: string
   children?: ReactNode
+  globalData?: any
 }
 
-const Page = ({ title, children }: Props) => (
-  <>
+const globalDataContext = createContext<any>(null)
+export const useGlobalDataContext = () => useContext(globalDataContext)
+
+const Page = ({ title, children, globalData }: Props) => (
+  <globalDataContext.Provider value={globalData}>
     {title ? (
       <Head>
         <title>{title} | KMB Motors</title>
@@ -31,7 +36,7 @@ const Page = ({ title, children }: Props) => (
         min-height: 100vh;
       }
     `}</style>
-  </>
+  </globalDataContext.Provider>
 )
 
 export default Page

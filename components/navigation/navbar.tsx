@@ -5,11 +5,13 @@ import Sidebar from './sidebar'
 import Dropdown from './dropdown'
 import s from './styles/navbar.module.css'
 import nav from '@/lib/navigation'
+import { useGlobalDataContext } from '../page'
 
 export default function Navbar() {
   const [ sidebar, setSidebar ] = useState(false)
   const [scrollY, setScrollY] = useState<number>(null)
   const toggleSidebar = () => (setSidebar(!sidebar))
+  const globalData = useGlobalDataContext()
 
   const scrollHander = () => {
     setScrollY(window.scrollY)
@@ -45,7 +47,7 @@ export default function Navbar() {
             className="items-center hidden lg:flex duration-200 transition-all"
             style={scrollY > navH  || sidebar ? {transform: 'translate(-1rem,0)', opacity: 0, pointerEvents: 'none'} : {}}
           >
-            {nav.map((n, i) => n.childrens ? (
+            {nav(globalData).map((n, i) => n.childrens ? (
               <Fragment key={i}>
                 <Dropdown titulo={n.titulo} links={n.childrens}/>
               </Fragment>
