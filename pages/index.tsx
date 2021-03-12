@@ -1,4 +1,4 @@
-import { request, responsiveImageFragment, responsiveImageHelper } from '@/lib/datocms'
+import { getGlobalData, request, responsiveImageFragment, responsiveImageHelper } from '@/lib/datocms'
 export { default,  } from '@/www/pages/index'
 
 const HOMEPAGE_QUERY = `
@@ -24,22 +24,19 @@ query HomepageQuery {
     brand
     year
   }
-  allDealerCategories {
-    name
-    slug
-  }
 }
 
 ${responsiveImageFragment}
 `
 
 export const getStaticProps = async () => {
-  const { homepage, allDealerInventories, allDealerCategories } = await request({ query: HOMEPAGE_QUERY })
+  const globalData = await getGlobalData()
+  const { homepage, allDealerInventories } = await request({ query: HOMEPAGE_QUERY })
   return {
     props: {
       ...homepage,
       vehicles: allDealerInventories,
-      globalData: allDealerCategories,
+      globalData,
     }
   }
 }

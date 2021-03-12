@@ -18,6 +18,22 @@ export function request({ query, variables, preview }: {
     return process.env.OFFLINE ? Promise.resolve({}) : client.request(query, variables)
 }
 
+const GLOBAL_DATA_QUERY = `
+query GlobalDataQuery {
+  allDealerCategories {
+    name
+    slug
+  }
+}
+`
+
+export async function getGlobalData({ preview = false }: { preview?: boolean } = {}): Promise<any> {
+  const { allDealerCategories } = await request({ query: GLOBAL_DATA_QUERY, preview })
+  return {
+    dealerCategories: allDealerCategories,
+  }
+}
+
 export const responsiveImageHelper = ({ w, h, fit }: {
   w?: number
   h?: number
