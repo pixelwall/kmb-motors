@@ -107,10 +107,6 @@ const Childs = () => {
 const Wrapper = () => {
   const [childMenu] = useChildState()
 
-  useEffect(() => {
-    console.log(childMenu)
-  }, [childMenu])
-
   return (
     <div className={s.sidebarWrapper}>
       {childMenu ? <Childs/> : <Parents/>}
@@ -123,7 +119,7 @@ export interface SidebarProps {
   toggle: () => void
 }
 
-const Sidebar = ({ open = false, toggle }: SidebarProps) => {
+const Sidebar = ({ open = false }: SidebarProps) => {
   const sidebarRef: RefObject<HTMLElement> = useRef(null)
   const sidebarState: ChildState = useState(null)
   const [,setSidebarState] = sidebarState
