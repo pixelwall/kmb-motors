@@ -54,9 +54,10 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
       res.setHeader('Content-Type', 'text/html')
       res.end(`<h1>Bad Request</h1><p>The url <em>${url}</em> is not valid.</p>`)
     } else {
-      const file = await getScreenshot(url, 'png', qual, false, 600, 600)
+      const file = await getScreenshot(url, 'jpeg', qual, false, 1200, 630)
       res.statusCode = 200
-      res.setHeader('Content-Type', `image/png`)
+      res.setHeader('Cache-Control', 's-maxage=31536000, stale-while-revalidate')
+      res.setHeader('Content-Type', `image/jpeg`)
       res.end(file)
     }
   } catch (e) {
