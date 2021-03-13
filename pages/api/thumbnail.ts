@@ -2,11 +2,7 @@ import { URL } from 'url'
 import chrome from 'chrome-aws-lambda'
 import puppeteer from 'puppeteer-core'
 import type { NextApiRequest, NextApiResponse } from 'next'
-
-const getAbsoluteURL = (path: string) => {
-  const baseURL = process.env.VERCEL_URL ? `https://${process.env.VERCEL_URL}` : "http://localhost:3000"
-  return baseURL + path
-}
+import { getAbsoluteURL } from '@/lib/utils'
 
 async function getScreenshot(
   url: string,

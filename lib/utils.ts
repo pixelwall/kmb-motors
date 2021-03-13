@@ -1,3 +1,8 @@
+export const getAbsoluteURL = (path: string) => {
+  const baseURL = process.env.HOST_URL ? `https://${process.env.HOST_URL}` : "http://localhost:3000"
+  return baseURL + path
+}
+
 const matcher = (regexp: RegExp, fields?: string[]): (obj: Object) => boolean => {
   return (obj) => {
     const fields1 = fields || Object.keys(obj)

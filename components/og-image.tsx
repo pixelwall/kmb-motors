@@ -1,10 +1,6 @@
+import {getAbsoluteURL} from '@/lib/utils'
 import Head from 'next/head'
 import { useRouter } from 'next/router'
-
-const getAbsoluteURL = (path: string) => {
-  const baseURL = process.env.VERCEL_URL ? `https://${process.env.VERCEL_URL}` : "http://localhost:3000"
-  return baseURL + path
-}
 
 export interface OgImageProps {
   image?: string
