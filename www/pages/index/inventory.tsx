@@ -16,7 +16,7 @@ const Inventory = (data: InventoryProps) => (
     <VehiclesContainer {...data}/>
     <V className="flex w-full pt-6 text-center animate" oneWay>
       <Link href="/dealer">
-        <a className={styles.goTo}>Go to gallery <span className="i jam:chevron-right"/></a>
+        <a className={styles.goTo}>Go to inventory <span className="i jam:chevron-right"/></a>
       </Link>
     </V>
   </div>
