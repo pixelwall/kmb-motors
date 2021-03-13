@@ -8,7 +8,7 @@ interface IndexProps extends HeroProps, WelcomeProps, InventoryProps {
 }
 
 const Index = (data: IndexProps) => (
-  <Page {...data}>
+  <Page globalData={data.globalData}>
     <Hero {...data}/>
     <Welcome {...data}/>
     <Inventory {...data}/>
