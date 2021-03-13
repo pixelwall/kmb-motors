@@ -29,6 +29,7 @@ const Category = () => {
           href={{ pathname: '/dealer',  query: resetType() }}
           scroll={false}
           shallow
+					replace
         >
           <a
             className={`px-4 py-2 duration-200 hover:text-white animate ${
@@ -41,7 +42,8 @@ const Category = () => {
             href={{ pathname: '/dealer', query: { ...query, type: c.slug } }}
             scroll={false}
             shallow
-            key={i}
+						replace
+						key={i}
           >
             <a
               className={`px-4 py-2 duration-200 hover:text-white animate ${
@@ -71,6 +73,7 @@ const Status = () => {
           href={{ pathname: '/dealer',  query: resetStatus() }}
           scroll={false}
           shallow
+					replace
         >
           <a
             className={`px-4 py-2 duration-200 hover:text-white animate ${
@@ -82,6 +85,7 @@ const Status = () => {
           href={{ pathname: '/dealer',  query: { ...query, status: 'new' } }}
           scroll={false}
           shallow
+					replace
         >
           <a
             className={`px-4 py-2 duration-200 hover:text-white animate ${
@@ -94,6 +98,7 @@ const Status = () => {
           href={{ pathname: '/dealer',  query: { ...query, status: 'used' } }}
           scroll={false}
           shallow
+					replace
         >
           <a
             className={`px-4 py-2 duration-200 hover:text-white animate ${
