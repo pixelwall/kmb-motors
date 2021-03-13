@@ -28,9 +28,7 @@ async function getScreenshot(
 
   const page = await browser.newPage()
   await page.goto(url)
-  await page.evaluate(() => document.querySelectorAll('*').forEach((el) => {
-    el.setAttribute('style', 'transition: none !important')
-  }))
+  await page.emulateMediaFeatures([{ name: 'prefers-reduced-motion', value: 'reduce' }])
 
   const file = await page.screenshot({ type,  quality, fullPage })
   await browser.close()
