@@ -28,6 +28,10 @@ async function getScreenshot(
 
   const page = await browser.newPage()
   await page.goto(url)
+  await page.evaluate(() => document.querySelectorAll('*').forEach((el) => {
+    el.setAttribute('style', 'transition: none !important')
+  }))
+
   const file = await page.screenshot({ type,  quality, fullPage })
   await browser.close()
   return file;
