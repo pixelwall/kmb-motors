@@ -1,4 +1,6 @@
-import * as playwright from 'playwright-aws-lambda'
+import { URL } from 'url'
+import chrome from 'chrome-aws-lambda'
+import puppeteer from 'puppeteer-core'
 import type { NextApiRequest, NextApiResponse } from 'next'
 
 const getAbsoluteURL = (path: string) => {
@@ -6,28 +8,61 @@ const getAbsoluteURL = (path: string) => {
   return baseURL + path
 }
 
-export default async (req: NextApiRequest, res: NextApiResponse) => {
-  // Start the browser with the AWS Lambda wrapper (playwright-aws-lambda)
-  const browser = await playwright.launchChromium()
-  // Create a page with the Open Graph image size best practise
-  const page = await browser.newPage({
-    viewport: {
-      width: 1200,
-      height: 630
+async function getScreenshot(
+  url: string,
+  type: 'png' | 'jpeg',
+  quality: number,
+  fullPage: boolean,
+  viewportWidth: number,
+  viewportHeight: number
+) {
+  const browser = await puppeteer.launch({
+    args: chrome.args,
+    executablePath: await chrome.executablePath,
+    headless: chrome.headless,
+    defaultViewport: {
+      width: viewportWidth,
+      height: viewportHeight
     }
-  });
+  })
+
+  const page = await browser.newPage()
+  await page.goto(url)
+  const file = await page.screenshot({ type,  quality, fullPage })
+  await browser.close()
+  return file;
+}
+
+function isValidUrl(str: string) {
+    try {
+        const url = new URL(str)
+        return url.hostname.includes('.')
+    } catch(e) {
+        console.error(e.message)
+        return false
+    }
+}
+
+export default async (req: NextApiRequest, res: NextApiResponse) => {
   // Generate the full URL out of the given path (GET parameter)
   const url = getAbsoluteURL((req.query['path'] as string) || '')
-  await page.goto(url, {
-    timeout: 15 * 1000
-  })
-  const data = await page.screenshot({
-    type: 'png'
-  })
-  await browser.close()
-  // Set the s-maxage property which caches the images then on the Vercel edge
-  res.setHeader('Cache-Control', 's-maxage=31536000, stale-while-revalidate')
-  res.setHeader('Content-Type', 'image/png')
-  // write the image to the response with the specified Content-Type
-  res.end(data)
+
+  try {
+    const qual = 60
+    if (!isValidUrl(url)) {
+      res.statusCode = 400
+      res.setHeader('Content-Type', 'text/html')
+      res.end(`<h1>Bad Request</h1><p>The url <em>${url}</em> is not valid.</p>`)
+    } else {
+      const file = await getScreenshot(url, 'png', qual, false, 600, 600)
+      res.statusCode = 200
+      res.setHeader('Content-Type', `image/png`)
+      res.end(file)
+    }
+  } catch (e) {
+    res.statusCode = 500
+    res.setHeader('Content-Type', 'text/html')
+    res.end('<h1>Server Error</h1><p>Sorry, there was a problem</p>')
+    console.error(e.message)
+  }
 }
