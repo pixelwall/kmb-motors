@@ -7,7 +7,7 @@ interface IndexProps extends HeroProps, InventoryProps {
 }
 
 const Index = (data: IndexProps) => (
-  <Page title="Dealer gallery" {...data}>
+  <Page title="Dealer Inventory" {...data}>
     <Hero {...data}/>
     <Inventory {...data}/>
   </Page>

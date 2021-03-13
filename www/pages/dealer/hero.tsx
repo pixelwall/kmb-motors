@@ -12,7 +12,7 @@ const Hero = ({ slogan }: HeroProps) => (
       <V className="flex flex-col" style={setAnim({x: '-0.5rem'})}>
         <h1
           className={`${styles['title']} animate`}
-        >Dealer inventory</h1>
+        >Dealer Inventory</h1>
         <h2
           className={`${styles['subtitle']} animate`}
           style={{transitionDelay: '100ms'}}
