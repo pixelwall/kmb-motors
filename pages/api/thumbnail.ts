@@ -21,7 +21,6 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
   await page.goto(url, {
     timeout: 15 * 1000
   })
-  await page._client.send('Animation.setPlaybackRate', { playbackRate: 2 })
   const data = await page.screenshot({
     type: 'png'
   })
