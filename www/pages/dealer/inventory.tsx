@@ -4,8 +4,8 @@ import V, { setAnim } from '@/components/viewport'
 import Link from 'next/link'
 import { useGlobalDataContext } from '@/components/page'
 import { useRouter } from 'next/router'
-import { useState, useEffect } from 'react'
-import {search} from '@/lib/utils'
+import { useState, useEffect, useMemo } from 'react'
+import { search } from '@/lib/utils'
 
 export interface InventoryProps {
   vehicles?: Vehicle[]
@@ -108,7 +108,6 @@ const Status = () => {
 }
 
 const Inventory = (data: InventoryProps) => {
-  const [filteredData, setFilteredData] = useState(data.vehicles)
   const { query } = useRouter()
   const [type, setType] = useState(query.type)
   const [status, setStatus] = useState(query.status)
@@ -120,8 +119,7 @@ const Inventory = (data: InventoryProps) => {
     setStatus(query.status)
   }, [query])
 
-  // Filter data on client side
-  useEffect(() => {
+  const filteredData = useMemo(() => {
     let newData = data.vehicles
     if (type) {
       newData = newData.filter((v) => v.category.slug == type)
@@ -134,7 +132,7 @@ const Inventory = (data: InventoryProps) => {
     if (searchInput) {
       newData = search(newData, searchInput, ['name'])
     }
-    setFilteredData(newData)
+    return newData
   }, [type, status, searchInput])
 
   return (

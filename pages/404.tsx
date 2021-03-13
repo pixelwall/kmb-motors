@@ -2,7 +2,7 @@ import Page from '@/components/page'
 import { getGlobalData } from '@/lib/datocms'
 
 const Page404 = (data: { globalData?: any }) => (
-  <Page {...data}/>
+  <Page title="404" {...data}/>
 )
 
 export async function getStaticProps() {
