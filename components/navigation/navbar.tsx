@@ -38,6 +38,7 @@ export default function Navbar() {
                 src="/images/logo.webp"
                 className="h-8 sm:h-12 duration-200 transform hover:scale-95 logo"
                 alt="logo"
+                loading="lazy"
               />
             </a>
           </Link>
