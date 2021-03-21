@@ -3,7 +3,7 @@ module.exports = {
     'postcss-import': {
       path: ['./node_modules']
     },
-    tailwindcss: {},
+    '@tailwindcss/jit': {},
     autoprefixer: {},
   },
 }
