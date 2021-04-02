@@ -29,7 +29,7 @@
     "url": "^0.11.0"
   },
   "devDependencies": {
-    "chrome-aws-lambda": "^8.0.0",
+    "chrome-aws-lambda": "^5.0.0",
     "@svgr/webpack": "^5.5.0",
     "@tailwindcss/jit": "^0.1.5",
     "@types/dompurify": "^2.2.1",

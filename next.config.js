@@ -6,7 +6,7 @@ const dev = process.env.NODE_ENV !== 'production'
 const nextConfig = {
   reactStrictMode: true,
   future: {
-    webpack5: dev,
+    webpack5: true,
     strictPostcssConfiguration: true,
   },
   webpack: (config, { dev, isServer }) => {
