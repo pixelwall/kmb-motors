@@ -1,5 +1,4 @@
 import { URL } from 'url'
-import chrome from 'chrome-aws-lambda'
 import puppeteer from 'puppeteer-core'
 import type { NextApiRequest, NextApiResponse } from 'next'
 import { getAbsoluteURL } from '@/lib/utils'
@@ -12,6 +11,7 @@ async function getScreenshot(
   viewportWidth: number,
   viewportHeight: number
 ) {
+  const chrome = require('chrome-aws-lambda')
   const browser = await puppeteer.launch({
     args: chrome.args,
     executablePath: await chrome.executablePath,
