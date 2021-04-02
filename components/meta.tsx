@@ -1,5 +1,5 @@
 import Head from 'next/head'
-import GoogleFonts from 'next-google-fonts'
+import { GoogleFonts } from '@/components/google-fonts'
 
 const Meta = () => (
   <>

@@ -28,5 +28,6 @@
 	@apply pointer-events-auto;
 	@apply text-base;
 	@apply font-title;
-	@apply text-kmb-gray-300;
+	@apply text-white;
+	@apply font-bold;
 }

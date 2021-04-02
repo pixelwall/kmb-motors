@@ -7,7 +7,8 @@
     "build": "next build",
     "start": "next start",
     "test": "xo !*.config.js",
-    "favicons": "gulp generateFavicons"
+    "favicons": "gulp generateFavicons",
+    "webp": "gulp generateWebpsPublic"
   },
   "dependencies": {
     "chrome-aws-lambda": "^8.0.0",
@@ -15,9 +16,9 @@
     "globby": "^11.0.2",
     "graphql": "^15.5.0",
     "graphql-request": "^3.4.0",
-    "next": "10.0.3",
+    "next": "10.1.2",
     "next-google-fonts": "^1.2.1",
-    "next-pwa": "^5.0.5",
+    "next-pwa": "^5.0.6",
     "next-themes": "^0.0.10",
     "preact": "^10.5.12",
     "preact-compat": "^3.19.0",
@@ -42,6 +43,7 @@
     "eslint-plugin-react-hooks": "^4.2.0",
     "favicons": "^6.2.1",
     "gulp": "^4.0.2",
+    "gulp-webp": "^4.0.1",
     "next-compose-plugins": "^2.2.1",
     "next-images": "^1.7.0",
     "next-plugins": "^1.0.3",

@@ -1,10 +1,13 @@
-import { getGlobalData, request, responsiveImageFragment, responsiveImageHelper } from '@/lib/datocms'
+import { getGlobalData, request, responsiveImageHelper } from '@/lib/datocms'
 export { default,  } from '@/www/pages/index'
 
 const HOMEPAGE_QUERY = `
 query HomepageQuery {
   homepage {
     slogan
+    heroBackground {
+      ${responsiveImageHelper({w: 800, q: 60})}
+    }
     description
     welcomeImage {
       ${responsiveImageHelper({w: 500, h: 500, fit: 'crop'})}
@@ -26,8 +29,6 @@ query HomepageQuery {
     price
   }
 }
-
-${responsiveImageFragment}
 `
 
 export const getStaticProps = async () => {

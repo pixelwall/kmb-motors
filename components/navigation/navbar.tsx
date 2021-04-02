@@ -35,7 +35,7 @@ export default function Navbar() {
           <Link href="/">
             <a title="Home" className="overflow-hidden duration-100">
               <img
-                src="/images/logo.webp"
+                src="/images/logo.svg"
                 className="h-8 sm:h-12 duration-200 transform hover:scale-95 logo"
                 alt="logo"
                 loading="lazy"

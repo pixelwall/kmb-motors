@@ -5,6 +5,10 @@ const dev = process.env.NODE_ENV !== 'production'
 
 const nextConfig = {
   reactStrictMode: true,
+  future: {
+    webpack5: true,
+    strictPostcssConfiguration: true,
+  },
   webpack: (config, { dev, isServer }) => {
     if (!dev && !isServer) {
       Object.assign(config.resolve.alias, {

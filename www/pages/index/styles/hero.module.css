@@ -13,9 +13,9 @@
 	width: 100%;
 	height: 100%;
 	z-index: -10;
-	@apply bg-gradient-to-b;
-	@apply from-blue-800;
-	@apply to-transparent;
+	background-image: linear-gradient(to bottom, rgba(185, 28, 28, 0.5), #1E1E1E), var(--hero-background, url("/images/bg.jpg"));
+	background-position: center;
+	background-size: cover;
 }
 
 .title {

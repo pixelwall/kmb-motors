@@ -7,6 +7,7 @@
 	align-items: center;
 	@apply py-4;
 	@apply mx-4;
+	@apply font-bold;
 }
 
 .title:focus {
@@ -36,6 +37,7 @@
 	@apply origin-top-right;
 	@apply bg-kmb-gray-800;
 	@apply border-kmb-gray-700;
+	@apply font-normal;
 }
 
 .wrapper {
@@ -70,5 +72,5 @@
 }
 
 .navLink:hover {
-	border-bottom: 2px solid #0273E3;
+	border-bottom: 2px solid #EF4444;
 }

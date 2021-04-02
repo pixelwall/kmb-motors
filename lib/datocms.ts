@@ -34,18 +34,29 @@ export async function getGlobalData({ preview = false }: { preview?: boolean } =
   }
 }
 
-export const responsiveImageHelper = ({ w, h, fit }: {
+export const responsiveImageHelper = ({ w, h, q, fit }: {
   w?: number
   h?: number
+  q?: number
   fit?: string
 }) => {
   return `responsiveImage(imgixParams: {
-    ${w && `w: ${w},`}
-    ${h && `h: ${h},`}
-    ${fit && `fit: ${fit},`}
+    ${w ? `w: ${w},` : ''}
+    ${h ? `h: ${h},` : ''}
+    ${q ? `q: ${q},` : ''}
+    ${fit ? `fit: ${fit},` : ''}
     auto: format
   }) {
-    ...responsiveImageFragment
+    srcSet
+    webpSrcSet
+    sizes
+    src
+    width
+    height
+    aspectRatio
+    alt
+    title
+    base64
   }`
 }
 

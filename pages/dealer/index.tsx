@@ -1,4 +1,4 @@
-import { getGlobalData, request, responsiveImageFragment, responsiveImageHelper } from '@/lib/datocms'
+import { getGlobalData, request, responsiveImageHelper } from '@/lib/datocms'
 export { default,  } from '@/www/pages/dealer'
 
 const HOMEPAGE_QUERY = `
@@ -19,8 +19,6 @@ query DealerQuery {
     price
   }
 }
-
-${responsiveImageFragment}
 `
 
 export const getStaticProps = async () => {

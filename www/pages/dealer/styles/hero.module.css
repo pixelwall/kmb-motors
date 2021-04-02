@@ -15,7 +15,7 @@
 	height: 100%;
 	z-index: -10;
 	@apply bg-gradient-to-b;
-	@apply from-blue-800;
+	@apply from-red-700;
 	@apply to-transparent;
 }
 

@@ -1,4 +1,5 @@
 const favicons = require('favicons')
+const webp = require('gulp-webp')
 const faviconsConfig = require('./favicons.config')
 const gulp = require('gulp')
 const packageJson = require('./package.json')
@@ -13,7 +14,13 @@ const generateFavicons = () => {
 }
 exports.generateFavicons = generateFavicons
 
-const build = gulp.series(
-  generateFavicons,
-)
-exports.build = build
+const generateWebps = (path) => {
+  return gulp.src(`${path}/**/*`)
+    .pipe(webp({
+      quality: 60,
+    }))
+    .pipe(gulp.dest(path))
+}
+
+const generateWebpsPublic = () => generateWebps('public')
+exports.generateWebpsPublic = generateWebpsPublic

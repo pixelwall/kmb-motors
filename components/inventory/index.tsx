@@ -67,7 +67,7 @@ export const VehicleCard = ({
           </div>
           <Link href={{ pathname: '/dealer/[slug]', query: { slug } }}>
             <a
-              className="flex items-center justify-center w-full py-2 mt-4 border-2 text-kmb-blue-500 border-kmb-blue-500 duration-200 hover:bg-kmb-blue-500 hover:text-white rounded-md font-title"
+              className="flex items-center justify-center w-full py-2 mt-4 text-red-500 border-2 border-red-500 duration-200 hover:bg-red-500 hover:text-white rounded-md font-title"
             >View <span className="ml-2 i jam:search"></span></a>
           </Link>
         </div>
