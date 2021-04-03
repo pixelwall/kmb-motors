@@ -36,7 +36,7 @@ export default function Navbar() {
             <a title="Home" className="overflow-hidden duration-100">
               <img
                 src="/images/logo.svg"
-                className="h-8 sm:h-12 duration-200 transform hover:scale-95 logo"
+                className={`h-8 sm:h-12 duration-200 transform hover:scale-95 logo ${scrollY > navH && !sidebar ? 'opacity-0' : ''}`}
                 alt="logo"
                 loading="lazy"
               />
