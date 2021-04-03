@@ -15,6 +15,30 @@ export default function Navbar() {
 
   const scrollHander = () => {
     setScrollY(window.scrollY)
+    showingHandler()
+  }
+
+  const navH = 96
+
+  const [isShowing, setShowing] = useState(true)
+  const [lastScrollPosition, setLastScrollPosition] = useState(0)
+  const showingHandler = () => {
+    const currentScrollPosition =
+      window.pageYOffset || document.documentElement.scrollTop
+    if (currentScrollPosition < 0) {
+      return
+    }
+    // Stop executing this function if the difference between
+    // current scroll position and last scroll position is less than some offset
+    if (Math.abs(currentScrollPosition - lastScrollPosition) < navH) {
+      return
+    }
+    if (currentScrollPosition > navH) {
+      setShowing(currentScrollPosition < lastScrollPosition)
+    } else {
+      setShowing(true)
+    }
+    setLastScrollPosition(currentScrollPosition)
   }
 
   useEffect(() => {
@@ -25,8 +49,6 @@ export default function Navbar() {
     return () => (window.removeEventListener('scroll', scrollHander))
   })
 
-  const navH = 96
-
   return (
     <header className={s.header}>
       <Sidebar open={sidebar} toggle={toggleSidebar}/>
@@ -36,7 +58,10 @@ export default function Navbar() {
             <a title="Home" className="overflow-hidden duration-100">
               <img
                 src="/images/logo.svg"
-                className={`h-8 sm:h-12 duration-200 transform hover:scale-95 logo ${scrollY > navH && !sidebar ? 'opacity-0' : ''}`}
+                className={`
+                  h-8 sm:h-12 duration-200 transform hover:scale-95 logo
+                  ${!isShowing && !sidebar ? 'opacity-0 pointer-events-none' : ''}
+                  `}
                 alt="logo"
                 loading="lazy"
               />
