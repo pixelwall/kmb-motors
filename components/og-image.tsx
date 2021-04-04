@@ -26,14 +26,13 @@ const OgImage = ({ image }: OgImageProps) => {
   if (!image) {
     const searchParams = new URLSearchParams()
     searchParams.set('path', buildPath(pathname, query))
-    image = `/api/thumbnail?${searchParams}`
+    image = getAbsoluteURL(`/api/thumbnail?${searchParams}`)
   }
   // Open Graph & Twitter images need a full URL including domain
-  const fullImageURL = getAbsoluteURL(image)
   return (
     <Head>
-      <meta property="og:image" content={fullImageURL} />
-      <meta name="twitter:image" content={fullImageURL} />
+      <meta property="og:image" content={image} />
+      <meta name="twitter:image" content={image} />
     </Head>
   )
 }
