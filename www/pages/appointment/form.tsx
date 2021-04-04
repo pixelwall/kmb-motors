@@ -4,6 +4,7 @@ import { useState } from 'react'
 const Form = () => {
   const [form, setForm] = useState({
     name: '',
+    email: '',
     subject: '',
     message: '',
   })
@@ -23,6 +24,24 @@ const Form = () => {
           onChange={(e) => setForm(f => ({
             ...f,
             name: e.target.value,
+          }))}
+        />
+      </V>
+      
+      <p
+        className="mb-4 font-bold text-white font-title"
+      >
+        Email
+      </p>
+      <V className="w-full mb-6 animate" oneWay>
+        <input
+          className="w-full px-0 input font-title"
+          style={{ paddingLeft: '0', paddingRight: '0' }}
+          placeholder="Ex: mariagabriela@gmail.com"
+          value={form.email}
+          onChange={(e) => setForm(f => ({
+            ...f,
+            email: e.target.value,
           }))}
         />
       </V>

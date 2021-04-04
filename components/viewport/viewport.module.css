@@ -8,10 +8,11 @@
   --animate-r-x: 0deg;
   --animate-r-y: 0deg;
   --animate-time: 0.8s;
+  --animate-d: 0s;
 }
 .viewport :global( .animate),
 .viewport:global(.animate) {
-	transition: transform var(--animate-time), opacity var(--animate-time);
+	transition: transform var(--animate-time) var(--animate-d), opacity var(--animate-time) var(--animate-d);
 }
 
 .viewport:not(:global(.intersecting)) :global(.animate),

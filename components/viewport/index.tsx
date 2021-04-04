@@ -11,6 +11,7 @@ interface SetAnimationProps {
   rx?: string
   ry?: string
   time?: string
+  d?: string
 }
 export const setAnim = (props: SetAnimationProps): CSSProperties => {
   const keys = {
@@ -23,6 +24,7 @@ export const setAnim = (props: SetAnimationProps): CSSProperties => {
     rx: 'r-x',
     ry: 'r-y',
     time: 'time',
+    d: 'd',
   }
   const fields = Object.keys(props).filter((k) => props[k] !== null)
   const out: CSSProperties = {}

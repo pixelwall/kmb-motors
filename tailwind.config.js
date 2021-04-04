@@ -83,7 +83,32 @@ module.exports = {
         '-10': '-10',
       },
       colors,
+      typography: (theme) => ({
+        DEFAULT: {
+          css: {
+            color: theme('colors.kmb-gray.300'),
+          },
+          a: {
+            color: '#FFF',
+          },
+          h1: {
+            color: '#FFF',
+          },
+          h2: {
+            color: '#FFF',
+          },
+          h3: {
+            color: '#FFF',
+          },
+          h4: {
+            color: '#FFF',
+          },
+        },
+      }),
     },
   },
-  plugins: [require('tailwindcss-safe-area')],
+  plugins: [
+    require('tailwindcss-safe-area'),
+    require('@tailwindcss/typography'),
+  ],
 }
