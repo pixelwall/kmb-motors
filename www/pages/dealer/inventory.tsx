@@ -141,7 +141,7 @@ const Inventory = (data: InventoryProps) => {
   }, [type, status, searchInput])
 
   return (
-    <div className="pb-16 -mt-12 content">
+    <div className="pb-16 content">
       <p className="mb-4 font-bold text-white font-title">Filter options</p>
       <V className="w-full mb-6 animate">
         <input

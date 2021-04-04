@@ -2,8 +2,8 @@ import HeroBanner from '@/components/shared/hero-banner'
 
 const Hero = () => (
   <HeroBanner
-    title="Dealer inventory"
-    subtitle="View our hotest vehicles"
+    title="Contact us"
+    subtitle="Make an appointment"
   />
 )
 

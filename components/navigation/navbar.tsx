@@ -71,7 +71,7 @@ export default function Navbar() {
         <div className={s.elements}>
           <div
             className="items-center hidden lg:flex duration-200 transition-all"
-            style={scrollY > navH  || sidebar ? {transform: 'translate(-1rem,0)', opacity: 0, pointerEvents: 'none'} : {}}
+            style={!isShowing  || sidebar ? {transform: 'translate(-1rem,0)', opacity: 0, pointerEvents: 'none'} : {}}
           >
             {nav(globalData).map((n, i) => n.childrens ? (
               <Fragment key={i}>
@@ -84,7 +84,7 @@ export default function Navbar() {
             ))}
           </div>
           <div
-            className={`${scrollY < navH && !sidebar ? 'lg:hidden' : ''}`}
+            className={`${isShowing && !sidebar ? 'lg:hidden' : ''}`}
           >
             <Hamburger open={sidebar} toggle={toggleSidebar}/>
           </div>

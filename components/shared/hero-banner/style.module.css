@@ -6,6 +6,7 @@
 	@apply py-32;
 	color: white;
 	pointer-events: none;
+	@apply -mb-12;
 }
 
 .bg {
