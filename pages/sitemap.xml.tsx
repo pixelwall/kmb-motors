@@ -7,7 +7,7 @@ type BuildSitemap = (items: any) => Promise<any>
 
 const hostUrl = 'https://kmbmotors.com'
 
-const pages = ['', '/appointment', '/dealers']
+const pages = ['', '/about', '/appointment', '/dealers']
 
 const buildSitemap: BuildSitemap = (items) => {
   const sitemap = new SitemapStream({
