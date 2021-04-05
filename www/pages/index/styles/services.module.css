@@ -8,10 +8,11 @@
 }
 
 .bg {
+	--gradient-color: rgba(77, 76, 76, 0.8);
 	z-index: -10;
 	background-position: center;
 	height: 100%;
-	background-image: linear-gradient(0deg, rgba(30, 66, 159, 0.7), rgba(30, 66, 159, 0.7)), url(/images/bg.jpg);
+	background-image: linear-gradient(to bottom, var(--gradient-color), var(--gradient-color)), var(--hero-background, url("/images/bg.jpg"));
 	opacity: 0.5;
 }
 
