@@ -5,11 +5,11 @@ import { SitemapStream, streamToPromise } from 'sitemap'
 
 type BuildSitemap = (items: any) => Promise<any>
 
-const hostUrl = 'https://kmbmotors.com'
 
 const pages = ['', '/about', '/appointment', '/dealers']
 
 const buildSitemap: BuildSitemap = (items) => {
+const hostUrl = process.env.HOST_URL ? `https://${process.env.HOST_URL}` : "http://localhost:3000"
   const sitemap = new SitemapStream({
     hostname: hostUrl,
   })
