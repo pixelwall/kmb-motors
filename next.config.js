@@ -1,7 +1,6 @@
 const withPWA = require('next-pwa')
 const withPlugins = require('next-compose-plugins')
-
-const dev = process.env.NODE_ENV !== 'production'
+const { PHASE_PRODUCTION_BUILD, PHASE_PRODUCTION_SERVER } = require('next/constants')
 
 const nextConfig = {
   reactStrictMode: true,
@@ -23,9 +22,9 @@ const nextConfig = {
 }
 
 module.exports = withPlugins([
-  ...(!dev ? [withPWA, {
+  [withPWA, {
     pwa: {
       dest: 'public',
     },
-  }] : [])
+  }, [PHASE_PRODUCTION_BUILD, PHASE_PRODUCTION_SERVER]]
 ], nextConfig)

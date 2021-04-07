@@ -51,6 +51,7 @@ const colors = {
 }
 
 module.exports = {
+  mode: 'jit',
   purge: ['./**/*.{css,pcss}', './{pages,components,www}/**/*.{js,ts,jsx,tsx}'],
   darkMode: false,
   theme: {
