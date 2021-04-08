@@ -1,7 +1,7 @@
 import { ResponsiveImage } from '@/lib/models/cms'
 import V, { setAnim } from '@/components/viewport'
-import { Image } from 'react-datocms'
-import { useState } from 'react'
+import ZoomImage from '@/components/zoom-image'
+import { useRef, useState } from 'react'
 
 type CarouselImage = {
   idx?: number
@@ -13,6 +13,7 @@ export const Carousel = ({ images }: { images: ResponsiveImage[] }) => {
     idx: 0,
     image: images[0],
   })
+
   const clamp = (number: number, min: number, max: number) =>
     Math.min(Math.max(number, min), max)
   const prev = () => {
@@ -89,11 +90,7 @@ export const Carousel = ({ images }: { images: ResponsiveImage[] }) => {
             }
             key={idx}
           >
-            <Image
-              data={{
-                ...i.responsiveImage,
-              }}
-            />
+            <ZoomImage data={i.responsiveImage}/>
           </div>
         ))}
       </div>

@@ -16,6 +16,7 @@
     "globby": "^11.0.2",
     "graphql": "^15.5.0",
     "graphql-request": "^3.4.0",
+    "medium-zoom": "^1.0.6",
     "next": "10.0.5",
     "next-google-fonts": "^1.2.1",
     "next-pwa": "^5.0.6",
