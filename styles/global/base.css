@@ -13,3 +13,8 @@ body {
 	-webkit-tap-highlight-color: transparent;
 	-webkit-touch-callout: none;
 }
+
+.medium-zoom-image--opened {
+	object-position: center;
+	object-fit: cover;
+}

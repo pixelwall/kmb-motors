@@ -8,7 +8,7 @@ type CarouselImage = {
   image?: ResponsiveImage
 }
 
-export const Carousel = ({ images }: { images: ResponsiveImage[] }) => {
+export const Carousel = ({ images, imagesHd }: { images: ResponsiveImage[], imagesHd?: ResponsiveImage[] }) => {
   const [current, setCurrent] = useState<CarouselImage>({
     idx: 0,
     image: images[0],
@@ -90,7 +90,7 @@ export const Carousel = ({ images }: { images: ResponsiveImage[] }) => {
             }
             key={idx}
           >
-            <ZoomImage data={i.responsiveImage}/>
+            <ZoomImage data={i.responsiveImage} dataHd={imagesHd ? imagesHd[idx].responsiveImage : null} />
           </div>
         ))}
       </div>

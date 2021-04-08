@@ -19,7 +19,7 @@ const Slug = ({ vehicle, ...data }: VehicleProps) => (
     <div className="mb-6 content">
       <div className="flex flex-wrap w-full lg:-mx-6">
         <div className="w-full lg:px-6 lg:w-1/2">
-          <Carousel images={vehicle.images} />
+          <Carousel images={vehicle.images} imagesHd={vehicle.imagesHd} />
         </div>
         <div className="mt-12 w-full lg:mt-0 lg:px-6 lg:w-1/2">
           <Description {...vehicle} />

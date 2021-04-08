@@ -5,6 +5,7 @@ import { useRefWithCallback } from '@/lib/hooks'
 
 export type ZoomImageProps = {
     data: ResponsiveImageType;
+    dataHd?: ResponsiveImageType;
     /** Additional CSS className for root node */
     className?: string;
     /** Additional CSS class for the image inside the `<picture />` tag */
@@ -42,7 +43,11 @@ const ZoomImage = ({
         for (var mutation of mutationList) {
           mutation.addedNodes.forEach((el) => {
             const images = (el as HTMLElement).getElementsByTagName('img')
-            zoomRef.current.attach(images.item(images.length - 1) as HTMLElement)
+            const image = images.item(images.length - 1)
+            if (props.dataHd) {
+              image.setAttribute('data-zoom-src', props.dataHd.src)
+            }
+            zoomRef.current.attach(image as HTMLElement)
           })
         }
       })

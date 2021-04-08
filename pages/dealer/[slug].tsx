@@ -11,6 +11,9 @@ query VehicleQuery($slug: String) {
     images {
       ${responsiveImageHelper({w: 800, h: 552, fit: 'crop'})}
     }
+    imagesHd: images {
+      ${responsiveImageHelper({})}
+    }
     category {
       name
       slug

@@ -10,6 +10,7 @@ export interface Vehicle extends CMSType {
   slug?: string
   category?: DealerCategory
   images?: ResponsiveImage[]
+  imagesHd?: ResponsiveImage[]
   vehicleStatus?: string
   brand?: string
   year?: number
