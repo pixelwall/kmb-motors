@@ -4,6 +4,7 @@ module.exports = {
       path: ['./node_modules']
     },
     'tailwindcss': {},
+    'postcss-aspect-ratio-polyfill': {},
     autoprefixer: {},
   },
 }
