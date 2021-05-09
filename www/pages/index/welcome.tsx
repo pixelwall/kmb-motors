@@ -2,6 +2,7 @@ import V, { setAnim } from '@/components/viewport'
 import styles from './styles/welcome.module.css'
 
 import { Image, ResponsiveImageType } from 'react-datocms'
+import Img from 'next/image'
 
 export interface WelcomeProps {
   description?: string
@@ -28,10 +29,18 @@ const Welcome = ({ description, welcomeImage }: WelcomeProps) => (
         </div>
       </V>
       <V className={`${styles.description} animate`} style={setAnim({x: '1rem'})}>
-        <img src="/images/logo.svg" className="w-full mb-6" alt="KMB Motors"/>
+        <div className="mb-6 w-full">
+          <Img
+            src="/images/logo.png"
+            width="1297"
+            height="299"
+            className="w-full"
+            alt="KMB Motors"
+          />
+        </div>
         <div
           className={styles.descriptionContent}
-          dangerouslySetInnerHTML={{__html: description}}
+          dangerouslySetInnerHTML={{ __html: description }}
         />
       </V>
     </div>

@@ -55,12 +55,21 @@ export default function Navbar() {
       <div className={s.headerWrapper}>
         <div className="flex overflow-hidden pointer-events-auto">
           <Link href="/">
-            <a title="Home" className="overflow-hidden duration-100">
+            <a title="Home" className="duration-100 overflow-hidden relative">
+              <img
+                src="/images/logo.png"
+                className={`
+                  h-8 sm:h-12 duration-200 transform hover:scale-95 absolute logo
+                  ${!sidebar ? 'opacity-0 pointer-events-none' : ''}
+                  `}
+                alt="logo"
+                loading="lazy"
+              />
               <img
                 src="/images/logo.svg"
                 className={`
                   h-8 sm:h-12 duration-200 transform hover:scale-95 logo
-                  ${!isShowing && !sidebar ? 'opacity-0 pointer-events-none' : ''}
+                  ${!isShowing || sidebar ? 'opacity-0 pointer-events-none' : ''}
                   `}
                 alt="logo"
                 loading="lazy"
@@ -70,7 +79,7 @@ export default function Navbar() {
         </div>
         <div className={s.elements}>
           <div
-            className="items-center hidden lg:flex duration-200 transition-all"
+            className="transition-all duration-200 items-center hidden lg:flex"
             style={!isShowing  || sidebar ? {transform: 'translate(-1rem,0)', opacity: 0, pointerEvents: 'none'} : {}}
           >
             {nav(globalData).map((n, i) => n.childrens ? (

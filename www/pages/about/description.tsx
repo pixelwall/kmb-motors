@@ -2,6 +2,7 @@ import V, { setAnim } from '@/components/viewport'
 import { ResponsiveImage } from '@/lib/models/cms'
 import { Image } from 'react-datocms'
 import styles from './styles/contact.module.css'
+import Img from 'next/image'
 
 export interface AboutDescription {
   aboutImage?: ResponsiveImage
@@ -23,7 +24,15 @@ const Description = ({ aboutDescription, aboutImage }: AboutDescription) => (
         </div>
       </V>
       <V className={`${styles.description} animate`} style={setAnim({x: '-1rem'})}>
-        <img src="/images/logo.svg" className="mb-6 w-full" alt="KMB Motors"/>
+        <div className="mb-6 w-full">
+          <Img
+            src="/images/logo.png"
+            width="1297"
+            height="299"
+            className="w-full"
+            alt="KMB Motors"
+          />
+        </div>
         <div
           className={styles.descriptionContent}
           dangerouslySetInnerHTML={{__html: aboutDescription}}
