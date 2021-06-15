@@ -57,19 +57,10 @@ export default function Navbar() {
           <Link href="/">
             <a title="Home" className="duration-100 overflow-hidden relative">
               <img
-                src="/images/logo.png"
+                src="/images/logo.webp"
                 className={`
                   h-8 sm:h-12 duration-200 transform hover:scale-95 absolute logo
                   ${!isShowing && !sidebar ? 'opacity-0 pointer-events-none' : ''}
-                  `}
-                alt="logo"
-                loading="lazy"
-              />
-              <img
-                src="/images/logo.svg"
-                className={`
-                  h-8 sm:h-12 duration-200 transform hover:scale-95 logo
-                  ${true ? 'opacity-0 pointer-events-none' : ''}
                   `}
                 alt="logo"
                 loading="lazy"

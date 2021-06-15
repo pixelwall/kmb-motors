@@ -31,7 +31,7 @@ const Welcome = ({ description, welcomeImage }: WelcomeProps) => (
       <V className={`${styles.description} animate`} style={setAnim({x: '1rem'})}>
         <div className="mb-6 w-full">
           <Img
-            src="/images/logo.png"
+            src="/images/logo.webp"
             width="1297"
             height="299"
             className="w-full"
