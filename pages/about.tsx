@@ -1,4 +1,5 @@
 import { getGlobalData, request, responsiveImageHelper } from '@/lib/datocms'
+import { GetStaticProps } from 'next'
 export { default,  } from '@/www/pages/about'
 
 const ABOUTPAGE_QUERY = `
@@ -14,13 +15,14 @@ query AboutpageQuery {
 }
 `
 
-export const getStaticProps = async () => {
+export const getStaticProps: GetStaticProps = async () => {
   const globalData = await getGlobalData()
   const { about } = await request({ query: ABOUTPAGE_QUERY })
   return {
     props: {
       ...about,
       globalData,
-    }
+    },
+    revalidate: 1,
   }
 }

@@ -60,7 +60,7 @@ export default function Navbar() {
                 src="/images/logo.png"
                 className={`
                   h-8 sm:h-12 duration-200 transform hover:scale-95 absolute logo
-                  ${!sidebar ? 'opacity-0 pointer-events-none' : ''}
+                  ${!isShowing && !sidebar ? 'opacity-0 pointer-events-none' : ''}
                   `}
                 alt="logo"
                 loading="lazy"
@@ -69,7 +69,7 @@ export default function Navbar() {
                 src="/images/logo.svg"
                 className={`
                   h-8 sm:h-12 duration-200 transform hover:scale-95 logo
-                  ${!isShowing || sidebar ? 'opacity-0 pointer-events-none' : ''}
+                  ${true ? 'opacity-0 pointer-events-none' : ''}
                   `}
                 alt="logo"
                 loading="lazy"

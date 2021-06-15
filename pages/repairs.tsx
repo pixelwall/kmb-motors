@@ -8,7 +8,8 @@ export const getStaticProps = async () => {
     props: {
       ...autoRepairsGallery,
       globalData,
-    }
+    },
+    revalidate: 1,
   }
 }
 

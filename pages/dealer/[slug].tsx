@@ -1,6 +1,6 @@
 import { getGlobalData, request, responsiveImageHelper } from '@/lib/datocms'
 import { Vehicle } from '@/lib/models/dealerInventory'
-import { GetStaticPathsResult } from 'next'
+import { GetStaticPaths } from 'next'
 export { default,  } from '@/www/pages/dealer/[slug]'
 
 const query = `
@@ -49,12 +49,12 @@ query PathsQuery {
 }
 `
 
-export const getStaticPaths = async (): Promise<GetStaticPathsResult> => {
+export const getStaticPaths: GetStaticPaths = async () => {
   const { allDealerInventories } = await request({ query: paths_query })
   return {
     paths: allDealerInventories.map(({ slug }: Vehicle) => ({
       params: { slug },
     })),
-    fallback: false,
+    fallback: 'blocking',
   }
 }

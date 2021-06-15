@@ -39,6 +39,7 @@ export const getStaticProps = async () => {
       ...homepage,
       vehicles: allDealerInventories,
       globalData,
-    }
+    },
+    revalidate: 1,
   }
 }

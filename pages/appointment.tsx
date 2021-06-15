@@ -6,6 +6,7 @@ export const getStaticProps = async () => {
   return {
     props: {
       globalData,
-    }
+    },
+    revalidate: 1,
   }
 }
