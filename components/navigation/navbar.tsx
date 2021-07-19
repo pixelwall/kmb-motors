@@ -59,7 +59,7 @@ export default function Navbar() {
               <img
                 src="/images/logo.webp"
                 className={`
-                  h-8 sm:h-12 duration-200 transform hover:scale-95 absolute logo
+                  h-8 sm:h-12 duration-200 transform hover:scale-95 logo
                   ${!isShowing && !sidebar ? 'opacity-0 pointer-events-none' : ''}
                   `}
                 alt="logo"
