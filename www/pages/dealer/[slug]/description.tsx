@@ -28,7 +28,7 @@ export const Description = (vehicle: Vehicle) => (
       <FieldDesc title="Model" text={vehicle.model} />
     </div>
     <div className="animate" style={setAnim({ d: '500ms' })}>
-      <FieldDesc title="Milage" text={`${vehicle.milage}mi.`} />
+      <FieldDesc title="Milage" text={`${vehicle.milage} mi.`} />
     </div>
     <div className="animate" style={setAnim({ d: '600ms' })}>
       <FieldDesc title="Transmission" text={vehicle.transmission} />
@@ -36,8 +36,8 @@ export const Description = (vehicle: Vehicle) => (
     <div className="animate" style={setAnim({ d: '700ms' })}>
       <div className="flex space-x-2 items-center">
         <p><span className="font-bold font-title text-white">Exterior Color</span></p>
+        <div className="border-white border-2 rounded-[4px] h-[16px] w-[16px]" style={{ backgroundColor: vehicle.color.hex }} />
       </div>
-      <div className="border-white border-2 h-[4px] w-[4px]" style={{backgroundColor: vehicle.color.hex}} />
     </div>
     <div className="animate" style={setAnim({ d: '800ms' })}>
       <FieldDesc title="VIN Number" text={vehicle.vin} />

@@ -67,7 +67,7 @@ export const VehicleCard = ({
             <FieldDesc title="Make" text={make}/>
             <FieldDesc title="Year" text={year}/>
             <FieldDesc title="Model" text={model}/>
-            <FieldDesc title="Milage" text={`${milage}mi.`}/>
+            <FieldDesc title="Milage" text={`${milage} mi.`}/>
           </div>
           <Link href={{ pathname: '/dealer/[slug]', query: { slug } }}>
             <a
