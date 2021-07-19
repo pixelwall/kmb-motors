@@ -23,8 +23,8 @@ const Category = () => {
   }
   return (
     <div className="t-p">
-      <p className="mb-4 font-bold text-white font-title">Select vehicle type</p>
-      <V className="flex flex-wrap -mx-4 -my-2" style={setAnim({ y: '0.5rem' })} once>
+      <p className="font-bold font-title text-white mb-4">Select Vehicle Type</p>
+      <V className="flex flex-wrap -my-2 -mx-4" style={setAnim({ y: '0.5rem' })} once>
         <Link
           href={{ pathname: '/dealer',  query: resetType() }}
           scroll={false}
@@ -67,8 +67,8 @@ const Status = () => {
   }
   return (
     <div className="t-p">
-      <p className="mb-4 font-bold text-white font-title">Select vehicle status</p>
-      <V className="flex flex-wrap -mx-4 -my-2" style={setAnim({ y: '0.5rem' })} once>
+      <p className="font-bold font-title text-white mb-4">Select Vehicle Status</p>
+      <V className="flex flex-wrap -my-2 -mx-4" style={setAnim({ y: '0.5rem' })} once>
         <Link
           href={{ pathname: '/dealer',  query: resetStatus() }}
           scroll={false}
@@ -142,17 +142,17 @@ const Inventory = (data: InventoryProps) => {
 
   return (
     <div className="pb-16 content">
-      <p className="mb-4 font-bold text-white font-title">Filter options</p>
-      <V className="w-full mb-6 animate">
+      <p className="font-bold font-title text-white mb-4">Filter Options</p>
+      <V className="mb-6 w-full animate">
         <input
-          className="w-full px-0 input font-title"
+          className="font-title w-full px-0 input"
           style={{paddingLeft: '0', paddingRight: '0'}}
           placeholder="Search a car by his name"
           value={searchInput}
           onChange={(event) => setSearch(event.target.value)}
         />
       </V>
-      <div className="flex flex-wrap pb-12 -m-6 -my-4">
+      <div className="flex flex-wrap -m-6 -my-4 pb-12">
         <div className="p-6 py-4">
           <Category/>
         </div>
@@ -162,7 +162,7 @@ const Inventory = (data: InventoryProps) => {
       </div>
       {filteredData.length ? <VehiclesContainer vehicles={filteredData}/> : (
         <div
-          className="w-full py-16 text-center text-white t-h2 font-title"
+          className="font-title text-center text-white w-full py-16 t-h2"
         >
           Oops, nothing here :(
         </div>

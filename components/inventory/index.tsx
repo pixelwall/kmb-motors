@@ -5,7 +5,7 @@ import Link from 'next/link'
 
 export const VehiclesContainer = ({ vehicles }: { vehicles?: Vehicle[] }) => (
   <div
-    className="w-full grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xxl:grid-cols-3 gap-6"
+    className="w-full grid gap-6 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xxl:grid-cols-3"
   >
     {vehicles?.map((v, i) => (
       <Viewport className="w-full animate" style={setAnim({y: '0.5rem'})} oneWay key={i}>
@@ -21,21 +21,23 @@ export const VehicleCard = ({
   category,
   images,
   vehicleStatus,
-  brand,
+  make,
   year,
   price,
+  model,
+  milage,
 }: Vehicle) => {
   const image = images[0]
 
   const FieldDesc = ({ title, text }) => (
-    <p><span className="font-bold text-white font-title">{title} </span> {text}</p>
+    <p><span className="font-bold font-title text-white">{title} </span> {text}</p>
   )
 
   return (
     <div
-      className="w-full overflow-hidden border shadow-lg rounded-xl border-kmb-gray-700 duration-500 transform hover:-translate-y-1 hover:shadow-xl bg-kmb-gray-900"
+      className="border rounded-xl bg-kmb-gray-900 border-kmb-gray-700 shadow-lg w-full transform duration-500 overflow-hidden hover:shadow-xl hover:-translate-y-1"
     >
-      <div className="bg-gray-600 pattern bg-opacity-20">
+      <div className="bg-gray-600 bg-opacity-20 pattern">
         <div className="relative">
           <Image
             pictureClassName="w-full"
@@ -45,29 +47,31 @@ export const VehicleCard = ({
               title: name,
             }}
           />
-          <div className="absolute bottom-0 right-0 overflow-hidden rounded-tl-xl bg-kmb-gray-900">
-            <div className="p-2 px-4 font-bold text-white bg-gray-600 pattern bg-opacity-20 font-title">
+          <div className="rounded-tl-xl bg-kmb-gray-900 right-0 bottom-0 absolute overflow-hidden">
+            <div className="font-bold font-title bg-gray-600 bg-opacity-20 text-white p-2 px-4 pattern">
               {vehicleStatus}
             </div>
           </div>
         </div>
 
         <div className="p-4 t-p">
-          <div className="pb-4 border-b border-kmb-gray-600">
-            <h2 className="text-2xl font-bold text-white font-title">{name}</h2>
+          <div className="border-b border-kmb-gray-600 pb-4">
+            <h2 className="font-bold font-title text-white text-2xl">{name}</h2>
           </div>
-          <div className="pt-4 space-y-2">
-            <p className="flex items-center text-xl text-white font-title">
+          <div className="space-y-2 pt-4">
+            <p className="flex font-title text-xl text-white items-center">
               <span className="font-bold">${price.toLocaleString('en-US', {maximumFractionDigits:2})}</span>
               <span className="ml-2 text-green-500 i mdi:cash"/>
             </p>
-            <FieldDesc title="Type of vehicle" text={category.name}/>
-            <FieldDesc title="Brand" text={brand}/>
+            <FieldDesc title="Type of Vehicle" text={category.name}/>
+            <FieldDesc title="Make" text={make}/>
             <FieldDesc title="Year" text={year}/>
+            <FieldDesc title="Model" text={model}/>
+            <FieldDesc title="Milage" text={`${milage}mi.`}/>
           </div>
           <Link href={{ pathname: '/dealer/[slug]', query: { slug } }}>
             <a
-              className="flex items-center justify-center w-full py-2 mt-4 text-red-500 border-2 border-red-500 duration-200 hover:bg-red-500 hover:text-white rounded-md font-title"
+              className="rounded-md flex font-title border-2 border-red-500 mt-4 w-full py-2 text-red-500 duration-200 items-center justify-center hover:text-white hover:bg-red-500"
             >View <span className="ml-2 i jam:search"></span></a>
           </Link>
         </div>

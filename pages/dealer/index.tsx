@@ -14,9 +14,14 @@ query DealerQuery {
       slug
     }
     vehicleStatus
-    brand
+    make
     year
     price
+    model
+    milage
+    vin
+    transmission
+    color
   }
 }
 `

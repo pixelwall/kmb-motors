@@ -1,4 +1,4 @@
-import { CMSType, ResponsiveImage } from './cms'
+import { CMSType, ResponsiveImage, Color } from './cms'
 
 export interface DealerCategory extends CMSType {
   name?: string
@@ -12,8 +12,13 @@ export interface Vehicle extends CMSType {
   images?: ResponsiveImage[]
   imagesHd?: ResponsiveImage[]
   vehicleStatus?: string
-  brand?: string
+  make?: string
   year?: number
   price?: number
   description?: string
+  milage?: number
+  model?: string
+  vin?: string
+  transmission?: string
+  color?: Color
 }

@@ -19,7 +19,14 @@ query VehicleQuery($slug: String) {
       slug
     }
     vehicleStatus
-    brand
+    make
+    year
+    price
+    model
+    milage
+    vin
+    transmission
+    color
     year
     price
     description

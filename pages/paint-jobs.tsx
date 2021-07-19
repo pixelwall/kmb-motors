@@ -13,6 +13,6 @@ export const getStaticProps = async () => {
   }
 }
 
-const Repairs = (props: GalleryProps) => <Gallery title="Paint Jobs" {...props}/>
+const Repairs = (props: GalleryProps) => <Gallery title="Paint Jobs & Lift Kits" {...props}/>
 
 export default Repairs

@@ -24,7 +24,14 @@ query HomepageQuery {
       slug
     }
     vehicleStatus
-    brand
+    make
+    year
+    price
+    model
+    milage
+    vin
+    transmission
+    color
     year
     price
   }
