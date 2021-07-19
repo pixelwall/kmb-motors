@@ -21,7 +21,9 @@ query DealerQuery {
     milage
     vin
     transmission
-    color
+    color {
+      hex
+    }
   }
 }
 `

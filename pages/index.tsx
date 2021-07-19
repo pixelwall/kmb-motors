@@ -31,7 +31,9 @@ query HomepageQuery {
     milage
     vin
     transmission
-    color
+    color {
+      hex
+    }
     year
     price
   }

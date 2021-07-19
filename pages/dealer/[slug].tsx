@@ -26,7 +26,9 @@ query VehicleQuery($slug: String) {
     milage
     vin
     transmission
-    color
+    color {
+      hex
+    }
     year
     price
     description
